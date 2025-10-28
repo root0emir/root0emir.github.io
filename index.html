@@ -1,209 +1,259 @@
 <!DOCTYPE html>
-<html lang="tr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root0emir</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Assets/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
-        <link rel="stylesheet" href="styles.css">
+    <!-- Terminal Header  -->
+     <div class="terminal-header">
+        <div class="terminal-buttons">
+            <span class="btn-close"></span>
+            <span class="btn-minimize"></span>
+            <span class="btn-maximize"></span>
+        </div>
+        <div class="terminal-title">root0emir@cyrethium:~$</div>
+    </div> 
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-
-        <link rel="icon" href="redhat2.png" type="image/x-icon">
-
-
-        <title>Emir</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Emir</a>
-                </div>
-
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
-
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Merhaba,<br>Ben <span class="home__title-color">Emir</span><br>Linux Sistem<br>Yöneticisiyim</h1>
-
-                    <a href="#" class="button">İletişim</a>
-                </div>
-
-                <div class="home__social">
-                    <a href="https://www.linkedin.com/in/emir-kara%C3%A7al%C4%B1-5a81a9308/" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                    <a href="https://github.com/root0emir" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
-
-                <div class="home__img">
-                    <img src="linux.png"
-                                        
-                    <svg></svg>
-                </div>
-            </section>
-
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">Hakkımda</h2>
-
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="redhat.gif" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">Merhaba,ben Emir</h2>
-                        <p class="about__text">Linux Sistem Yönetimi ve Siber Güvenlik üzerine derinlemesine bilgi sahibi olmayı hedefleyen bir teknoloji meraklısıyım.
-                             Sürekli olarak bu alanlardaki becerilerimi geliştiriyor ve en güncel güvenlik yöntemleri ile sistem yönetimi tekniklerini öğreniyorum. 
-                            Hem pratik hem de teorik bilgiye dayalı deneyimlerimle, güçlü bir altyapı oluşturarak, güvenli ve verimli sistemler yönetmeyi amaçlıyorum</p>           
-                    </div>                                   
-                </div>
-            </section>
-
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Yeteneklerim</h2>
-
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profosyonel Yeteneklerim</h2>
-                        <p class="skills__text">Red Hat, CentOS, Fedora, Ubuntu ve Debian gibi Linux dağıtımlarında sistem yönetimi, kurulum, yapılandırma ve optimizasyon yapabilirim.
-                             Ayrıca, Nmap, Burp Suite, Wireshark, Nessus ve Metasploit gibi araçlarla güvenlik açıklarını tespit edebilir ve sistem güvenliğini sağlayabilirim.
-
-                            Ağ yönetimi konusunda TCP/IP, DNS ve VPN gibi protokollerle çalışabilir ve ağ güvenliği sağlamak için gerekli yapılandırmaları yapabilirim.
-                             Bash, Python ve Ansible gibi araçlarla sistem otomasyonunu da gerçekleştirebilirim.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-network-chart'></i>
-                                <span class="skills__name">Linux Sistem Mühendisliği</span>
-                            </div>
-                            <div class="skills__bar skills__html">
-
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-key'></i>
-                                <span class="skills__name">Network Mühendisliği</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bx-code-alt'></i>
-
-                                <span class="skills__name">Yazılım Geliştirme</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-shield'></i>
-                                <span class="skills__name">Siber Güvenlik</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>              
-                        <img src="redhat3.jpg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
-
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Çalışmalarım</h2>
-
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="redhat6.png" alt="1200x750">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="parrot.png" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="openSUSE.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="work4.png" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="work6.webp" alt="">
-                    </a>
-                </div>
-            </section>
-
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">İletişim</h2>
-
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Send" class="contact__button button">
-                    </form>
-                </div>
-            </section>
-        </main>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Emir</p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="terminal-prompt">
+                <span class="prompt-user">root0emir@cyrethium</span><span class="prompt-symbol">:~$</span>
+                <span class="typed-text"> whoami</span>
             </div>
-            <p class="footer__copy">&#169; Emir. All rigths reserved</p>
-        </footer>
+            <h1 class="glitch" data-text="CYBERSECURITY RESEARCHER">CYBERSECURITY RESEARCHER</h1>
+            <p class="welcome-text">
+                <span class="cursor-blink">></span> Welcome to my digital fortress. 
+                Strengthening systems, reducing attack surfaces, and engineering Linux distributions built for security and privacy.
+            </p>
+            <div class="status-line">
+                <span class="status-dot"></span> SYSTEM ONLINE | ACCESS GRANTED
+            </div>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="prompt-symbol">root0emir@cyrethium:~$</span> cat about.txt
+            </h2>
+            <div class="about-content">
+                <div class="terminal-window">
+                    <p class="code-line"><span class="comment"># About Me</span></p>
+                    <p class="code-line">I’m Emir, a cybersecurity professional with expertise in system administration and Blue Team operations. 
+                        I specialize in securing Linux environments, implementing system hardening, and optimizing operational resilience. My work focuses on minimizing attack surfaces, enforcing strong security defaults, and designing reliable, privacy-conscious solutions.
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+                        I’m also the lead developer of Cyrethium, a recognized privacy-focused Linux distribution. In this project, I build secure and hardened systems, integrate advanced privacy features, and develop custom tools to enhance system security and user protection..</p>
+                    <p class="code-line"><span class="comment"># Current Status</span></p>
+                    <p class="code-line"><span class="variable">status</span> = <span class="string">"Building Cyrethium ISO"</span></p>
+                    <p class="code-line"><span class="variable">mission</span> = <span class="string">"Making the digital world safer, one line of code at a time"</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!--===== MAIN JS =====-->
-        <script src="main.js"></script>
-    </body>
+    <!-- Programming Languages Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="prompt-symbol">root0emir@cyrethium:~$</span> ls -la ./programming_languages
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/python.png" alt="Python"></div>
+                    <h3>Python</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/bash.png" alt="Bash"></div>
+                    <h3>Bash</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/lua.png" alt="Lua"></div>
+                    <h3>Lua</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/go.png" alt="Go"></div>
+                    <h3>Go</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/perl.png" alt="Perl"></div>
+                    <h3>Perl</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/c.png" alt="C"></div>
+                    <h3>C</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/ansible.png" alt="Ansible"></div>
+                    <h3>Ansible</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><img src="Assets/js.png" alt="JavaScript"></div>
+                    <h3>JavaScript</h3>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cyber Security Tools Section -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="prompt-symbol">root0emir@cyrethium:~$</span> ls -la ./cyber_tools
+            </h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>Nessus</h3>
+                    <p>Security Scanner</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Wireshark</h3>
+                    <p>Packet Analysis</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Metasploit</h3>
+                    <p>Exploitation Framework</p>
+                </div>
+                <div class="tool-card">
+                    <h3>ELK Stack</h3>
+                    <p>SIEM</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Suricata</h3>
+                    <p>IDS/IPS</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Zeek</h3>
+                    <p>Network Security Monitor</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Falco</h3>
+                    <p>Runtime Security</p>
+                </div>
+                <div class="tool-card">
+                    <h3>MISP</h3>
+                    <p>Incident Response</p>
+                </div>
+                <div class="tool-card">
+                    <h3>Snort</h3>
+                    <p>IDS/IPS</p>
+                </div>
+                <div class="tool-card">
+                    <h3>OSQuery</h3>
+                    <p>Threat Hunting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies/Frameworks Section -->
+    <section class="technologies" id="technologies">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="prompt-symbol">root0emir@cyrethium:~$</span> cat frameworks.json
+            </h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-header">
+                        <img src="Assets/apparmor.png" alt="Apparmor">
+                        <h3>Apparmor</h3>
+                    </div>
+                    <p>Limits application actions using file-based security profiles</p>
+                    <div class="tech-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-header">
+                        <img src="Assets/selinux.png" alt="SELinux">
+                        <h3>SELinux</h3>
+                    </div>
+                    <p>Enforces mandatory access control policies for system processes.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-header">
+                        <img src="Assets/docker.png" alt="Docker">
+                        <h3>Docker / Kubernetes</h3>
+                    </div>
+                    <p>Containerization and orchestration for scalable cloud deployments</p>
+                    <div class="tech-tags">
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="prompt-symbol">root0emir@cyrethium:~$</span> ./contact.sh
+            </h2>
+            <div class="contact-content">
+                <div class="social-links">
+                    <a href="https://github.com/root0emir" target="_blank" class="social-card">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/emir837" target="_blank" class="social-card">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://youtube.com/@root0emir" target="_blank" class="social-card">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://x.com/root0emir" target="_blank" class="social-card">
+                        <i class="fab fa-twitter"></i>
+                        <span>X</span>
+                    </a>
+                </div>
+                <div class="email-section">
+                    <div class="email-display">
+                        <i class="fas fa-envelope"></i>
+                        <span class="email-text">root0emir@protonmail.com</span>
+                    </div>
+                    <a href="mailto:root0emir@protonmail.com" class="send-mail-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Mail
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><span class="cursor-blink">></span> root0emir@cyrethium:~$ exit</p>
+            <p class="copyright">© 2025 root0emir | All rights reserved </p>
+        </div>
+    </footer>
+
+    <!-- Matrix Background Effect -->
+    <canvas id="matrix-bg"></canvas>
+
+    <script src="script.js"></script>
+</body>
 </html>
