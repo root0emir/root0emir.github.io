@@ -1,203 +1,736 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>root0emir</title>
+    <title>root0emir | Cybersecurity Researcher & Linux Developer</title>
+    <meta name="description"
+        content="Cybersecurity professional specializing in system hardening, Linux distribution development, and Blue Team operations. Creator of Hardened Slarpx, Cyrethium, Fishy Linux, and more.">
+    <meta name="keywords"
+        content="cybersecurity, linux, security, hardening, root0emir, cyrethium, slarpx, fishy linux">
     <link rel="stylesheet" href="static/styles.css">
     <link rel="icon" href="Assets/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-    <!-- Terminal Header  -->
-     <div class="terminal-header">
-        <div class="terminal-buttons">
-            <span class="btn-close"></span>
-            <span class="btn-minimize"></span>
-            <span class="btn-maximize"></span>
+<body>
+    <!-- Cyberpunk Grid Background -->
+    <div class="cyber-grid"></div>
+
+    <!-- Matrix Rain Canvas -->
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- Particle System -->
+    <canvas id="particles"></canvas>
+
+    <!-- Terminal Navigation Bar -->
+    <nav class="nav-terminal" id="navbar">
+        <div class="nav-container">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="nav-title">
+                <span class="nav-user">root0emir</span><span class="nav-at">@</span><span
+                    class="nav-host">portfolio</span><span class="nav-colon">:</span><span
+                    class="nav-path">~</span><span class="nav-prompt">$</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-section="home">./home</a>
+                <a href="#about" class="nav-link" data-section="about">./about</a>
+                <a href="#projects" class="nav-link" data-section="projects">./projects</a>
+                <a href="#skills" class="nav-link" data-section="skills">./skills</a>
+                <a href="#contact" class="nav-link" data-section="contact">./contact</a>
+            </div>
+            <div class="nav-status">
+                <span class="status-indicator"></span>
+                <span class="status-text">SECURE</span>
+            </div>
         </div>
-        <div class="terminal-title">root0emir@cyrethium:~$</div>
-    </div> 
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="terminal-prompt">
-                <span class="prompt-user">root0emir@cyrethium</span><span class="prompt-symbol">:~$</span>
-                <span class="typed-text"> whoami</span>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="avatar-container">
+                    <div class="avatar-glow"></div>
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-ring ring-2"></div>
+                    <div class="avatar-ring ring-3"></div>
+                    <img src="Assets/pfp.png" alt="root0emir Avatar" class="avatar-img">
+                    <div class="avatar-status">
+                        <span class="online-dot"></span>
+                        <span class="online-text">ONLINE</span>
+                    </div>
+                </div>
             </div>
-            <h1 class="glitch" data-text="CYBERSECURITY RESEARCHER">CYBERSECURITY RESEARCHER</h1>
-            <p class="welcome-text">
-                <span class="cursor-blink">></span> Welcome to my digital fortress. 
-                Strengthening systems, reducing attack surfaces, and engineering Linux distributions built for security and privacy.
-            </p>
-            <div class="status-line">
-                <span class="status-dot"></span> SYSTEM ONLINE | ACCESS GRANTED
+            <div class="hero-right">
+                <div class="terminal-line">
+                    <span class="prompt-user">root0emir</span><span class="prompt-at">@</span><span
+                        class="prompt-host">portfolio</span><span class="prompt-colon">:</span><span
+                        class="prompt-path">~</span><span class="prompt-dollar">$</span>
+                    <span class="typed-command" id="typed-text"></span>
+                    <span class="cursor">▌</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">CYBERSECURITY</span>
+                    <span class="title-line accent">RESEARCHER</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="bracket">[</span> System Hardening <span class="separator">|</span> Linux Development
+                    <span class="separator">|</span> Blue Team Operations <span class="bracket">]</span>
+                </p>
+                <p class="hero-description">
+                    Strengthening systems, reducing attack surfaces, and engineering Linux distributions built for
+                    security. Welcome to my digital fortress.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="5">0</span>
+                        <span class="stat-label">Builded Distros</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="8">0</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" data-count="10">0</span>
+                        <span class="stat-label">Security Tools</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">
+                        <span class="btn-icon"><i class="fas fa-folder-open"></i></span>
+                        <span class="btn-text">View Projects</span>
+                        <span class="btn-arrow"><i class="fas fa-chevron-right"></i></span>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <span class="btn-icon"><i class="fas fa-terminal"></i></span>
+                        <span class="btn-text">Get in Touch</span>
+                    </a>
+                </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">SCROLL DOWN</span>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">
-                <span class="prompt-symbol">root0emir@cyrethium:~$</span> cat about.txt
-            </h2>
+            <div class="section-header">
+                <div class="section-terminal">
+                    <span class="prompt-symbol">$</span>
+                    <span class="section-command">cat about.txt</span>
+                </div>
+                <h2 class="section-title">About <span class="accent">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
             <div class="about-content">
-                <div class="terminal-window">
-                    <p class="code-line"><span class="comment"># About Me</span></p>
-                    <p class="code-line">I’m Emir, a cybersecurity professional with expertise in system administration and Blue Team operations. 
-                        I specialize in securing Linux environments, implementing system hardening, and optimizing operational resilience. My work focuses on minimizing attack surfaces, enforcing strong security defaults, and designing reliable, privacy-conscious solutions.
-
-                        I’m also the lead developer of Cyrethium, a recognized privacy-focused Linux distribution. In this project, I build secure and hardened systems, integrate advanced privacy features, and develop custom tools to enhance system security and user protection..</p>
-                    <p class="code-line"><span class="comment"># Current Status</span></p>
-                    <p class="code-line"><span class="variable">status</span> = <span class="string">"Building Cyrethium ISO"</span></p>
-                    <p class="code-line"><span class="variable">mission</span> = <span class="string">"Making the digital world safer, one line of code at a time"</span></p>
+                <div class="about-card main-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>I'm <span class="highlight">Emir</span>, a cybersecurity professional with expertise in
+                            system administration and Blue Team operations. I specialize in securing Linux environments,
+                            implementing system hardening, and optimizing operational resilience.</p>
+                        <p>My work focuses on <span class="highlight">minimizing attack surfaces</span>, enforcing
+                            strong security defaults, and designing reliable, privacy-conscious solutions.</p>
+                    </div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-header">
+                            <div class="card-icon cyan">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <h3>Focus Areas</h3>
+                        </div>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i> System Hardening</li>
+                            <li><i class="fas fa-check"></i> Linux Security</li>
+                            <li><i class="fas fa-check"></i> Privacy Engineering</li>
+                            <li><i class="fas fa-check"></i> Threat Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-header">
+                            <div class="card-icon magenta">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>Current Status</h3>
+                        </div>
+                        <div class="status-display">
+                            <div class="status-row">
+                                <span class="status-key">status</span>
+                                <span class="status-equals">=</span>
+                                <span class="status-value">"Building Hardened Slarpx"</span>
+                            </div>
+                            <div class="status-row">
+                                <span class="status-key">mission</span>
+                                <span class="status-equals">=</span>
+                                <span class="status-value">"Making digital world safer"</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Programming Languages Section -->
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-terminal">
+                    <span class="prompt-symbol">$</span>
+                    <span class="section-command">ls -la ./distributions</span>
+                </div>
+                <h2 class="section-title">My <span class="accent">Projects</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-showcase">
+                <!-- Hardened Slarpx - Featured -->
+                <div class="project-card featured">
+                    <div class="project-left">
+                        <div class="project-screenshot">
+                            <img src="Assets/slarpx-de.png" alt="Hardened Slarpx Desktop">
+                            <div class="screenshot-overlay">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="project-logo">
+                            <img src="Assets/slarpx.png" alt="Hardened Slarpx Logo">
+                        </div>
+                    </div>
+                    <div class="project-right">
+                        <div class="project-header">
+                            <div class="project-info">
+                                <h3 class="project-name">Hardened Slarpx</h3>
+                                <div class="project-meta">
+                                    <span class="meta-item"><i class="fas fa-calendar"></i> 2026-1-24</span>
+                                    <span class="meta-item"><i class="fas fa-layer-group"></i> Debian-based</span>
+                                    <span class="meta-item"><i class="fas fa-desktop"></i> CLI Only</span>
+                                </div>
+                            </div>
+                            <div class="project-status active">
+                                <span class="status-dot"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag security">Security</span>
+                            <span class="tag">Hardened</span>
+                            <span class="tag">CLI Only</span>
+                        </div>
+                        <p class="project-description">
+                            Hardened Slarpx is a Debian-based Linux distribution built with a strict security-first
+                            approach. It uses a multi-layered defense model with aggressive mitigations and extensive
+                            kernel-level hardening. Includes custom security modules: <span
+                                class="highlight">Poison</span> and <span class="highlight">Xennytsu</span>. Focuses on
+                            active intervention, sabotage, and destruction of attack paths.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <i class="fas fa-skull-crossbones"></i>
+                                <span>Poison Module</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Xennytsu Engine</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield"></i>
+                                <span>Kernel Hardening</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-fire-flame-curved"></i>
+                                <span>Restrictive Firewall</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://slarpx.github.io" target="_blank" class="project-link primary">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                            <a href="https://github.com/Slarpx" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://sourceforge.net/projects/slarpx/" target="_blank" class="project-link">
+                                <i class="fas fa-download"></i> SourceForge
+                            </a>
+                            <a href="https://distrowatch.com/table.php?distribution=slarpx" target="_blank"
+                                class="project-link">
+                                <i class="fas fa-eye"></i> DistroWatch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linux Engineer Toolkit Live -->
+                <div class="project-card">
+                    <div class="project-left">
+                        <div class="project-screenshot">
+                            <img src="Assets/leng-de.png" alt="Linux Engineer Toolkit Desktop">
+                            <div class="screenshot-overlay">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="project-logo">
+                            <img src="Assets/leng.png" alt="LengToolkit Logo">
+                        </div>
+                    </div>
+                    <div class="project-right">
+                        <div class="project-header">
+                            <div class="project-info">
+                                <h3 class="project-name">Linux Engineer Toolkit Live</h3>
+                                <div class="project-meta">
+                                    <span class="meta-item"><i class="fas fa-calendar"></i> 2026-1-22</span>
+                                    <span class="meta-item"><i class="fas fa-layer-group"></i> Debian-based</span>
+                                    <span class="meta-item"><i class="fas fa-desktop"></i> MATE</span>
+                                </div>
+                            </div>
+                            <div class="project-status active">
+                                <span class="status-dot"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag rescue">System Rescue</span>
+                            <span class="tag">Forensics</span>
+                            <span class="tag">Live Only</span>
+                            <span class="tag">MATE</span>
+                        </div>
+                        <p class="project-description">
+                            Linux Engineer Toolkit (LengToolkit) Live is a specialized, recovery-oriented Linux
+                            distribution designed for system engineers and IT professionals. Operating exclusively in
+                            Live mode, it provides a robust environment to rescue failing systems, recover lost data,
+                            and manage disk infrastructures without installation.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://sourceforge.net/projects/lengtoolkitlive/" target="_blank"
+                                class="project-link primary">
+                                <i class="fas fa-download"></i> SourceForge
+                            </a>
+                            <a href="https://distrowatch.com/table.php?distribution=lengtoolkitlive" target="_blank"
+                                class="project-link">
+                                <i class="fas fa-eye"></i> DistroWatch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zenclora OS -->
+                <div class="project-card">
+                    <div class="project-left">
+                        <div class="project-screenshot">
+                            <img src="Assets/zenclora-de.png" alt="Zenclora OS Desktop">
+                            <div class="screenshot-overlay">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="project-logo">
+                            <img src="Assets/zenclora.png" alt="Zenclora OS Logo">
+                        </div>
+                    </div>
+                    <div class="project-right">
+                        <div class="project-header">
+                            <div class="project-info">
+                                <h3 class="project-name">Zenclora OS</h3>
+                                <div class="project-meta">
+                                    <span class="meta-item"><i class="fas fa-calendar"></i> 2026-1-16</span>
+                                    <span class="meta-item"><i class="fas fa-layer-group"></i> Debian-based</span>
+                                    <span class="meta-item"><i class="fas fa-desktop"></i> GNOME</span>
+                                </div>
+                            </div>
+                            <div class="project-status active">
+                                <span class="status-dot"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag desktop">Desktop</span>
+                            <span class="tag">Gaming</span>
+                            <span class="tag">Multimedia</span>
+                            <span class="tag">GNOME</span>
+                        </div>
+                        <p class="project-description">
+                            Zenclora is a Debian-based desktop Linux distribution optimized for stability and daily use.
+                            Zenclora offers simplified package and system management commands to make Linux usage
+                            easier; it avoids unnecessary complexity while providing control to the user.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://zenclora.org" target="_blank" class="project-link primary">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                            <a href="https://github.com/Zenclora" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://sourceforge.net/projects/zenclora/" target="_blank" class="project-link">
+                                <i class="fas fa-download"></i> SourceForge
+                            </a>
+                            <a href="https://distrowatch.com/table.php?distribution=zenclora" target="_blank"
+                                class="project-link">
+                                <i class="fas fa-eye"></i> DistroWatch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fishy Linux -->
+                <div class="project-card">
+                    <div class="project-left">
+                        <div class="project-screenshot">
+                            <img src="Assets/fishy-de.png" alt="Fishy Linux Desktop">
+                            <div class="screenshot-overlay">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="project-logo">
+                            <img src="Assets/fishy.png" alt="Fishy Linux Logo">
+                        </div>
+                    </div>
+                    <div class="project-right">
+                        <div class="project-header">
+                            <div class="project-info">
+                                <h3 class="project-name">Fishy Linux</h3>
+                                <div class="project-meta">
+                                    <span class="meta-item"><i class="fas fa-calendar"></i> 2025-11-11</span>
+                                    <span class="meta-item"><i class="fas fa-layer-group"></i> Debian-based</span>
+                                    <span class="meta-item"><i class="fas fa-desktop"></i> LXQT</span>
+                                </div>
+                            </div>
+                            <div class="project-status active">
+                                <span class="status-dot"></span>
+                                <span>ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag lightweight">Old Computers</span>
+                            <span class="tag">Desktop</span>
+                            <span class="tag">Lightweight</span>
+                            <span class="tag">LXQT</span>
+                        </div>
+                        <p class="project-description">
+                            Fishy Linux is a fast and minimal Debian-based Linux distribution. It uses the lightweight
+                            and efficient LXQT desktop environment. Fishy Linux comes with broad hardware support and
+                            can be installed to disk using Debian Installer.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://sourceforge.net/projects/fishy-linux/" target="_blank"
+                                class="project-link primary">
+                                <i class="fas fa-download"></i> SourceForge
+                            </a>
+                            <a href="https://distrowatch.com/table.php?distribution=fishy" target="_blank"
+                                class="project-link">
+                                <i class="fas fa-eye"></i> DistroWatch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cyrethium (Discontinued) -->
+                <div class="project-card discontinued">
+                    <div class="project-left">
+                        <div class="project-screenshot">
+                            <img src="Assets/cyrethium-de.png" alt="Cyrethium Desktop">
+                            <div class="screenshot-overlay">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="project-logo">
+                            <img src="Assets/cyrethium.png" alt="Cyrethium Logo">
+                        </div>
+                    </div>
+                    <div class="project-right">
+                        <div class="project-header">
+                            <div class="project-info">
+                                <h3 class="project-name">Cyrethium</h3>
+                                <div class="project-meta">
+                                    <span class="meta-item"><i class="fas fa-calendar"></i> 2025-5-8 → 2025-12-20</span>
+                                    <span class="meta-item"><i class="fas fa-layer-group"></i> Debian-based(formerly
+                                        Arch)</span>
+                                    <span class="meta-item"><i class="fas fa-desktop"></i> MATE</span>
+                                </div>
+                            </div>
+                            <div class="project-status inactive">
+                                <span class="status-dot"></span>
+                                <span>DISCONTINUED</span>
+                            </div>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag privacy">Privacy</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Tor</span>
+                            <span class="tag">MATE</span>
+                        </div>
+                        <p class="project-description">
+                            Cyrethium (formerly Securonis Linux, previously known as Portal OS) is a Debian-based Linux
+                            distribution focused on privacy and security. Routes all traffic through Tor network.
+                            Pre-configured DNSCrypt-Proxy and I2P Router with custom hardened Firefox variants. 4
+                            versions available: 2 core and 2 respins.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://cyrethium.org" target="_blank" class="project-link">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                            <a href="https://github.com/Cyrethium" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://github.com/Securonis" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Securonis
+                            </a>
+                            <a href="https://sourceforge.net/projects/cyrethium/" target="_blank" class="project-link">
+                                <i class="fas fa-download"></i> SourceForge
+                            </a>
+                            <a href="https://distrowatch.com/table.php?distribution=cyrethium" target="_blank"
+                                class="project-link">
+                                <i class="fas fa-eye"></i> DistroWatch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
     <section class="skills" id="skills">
         <div class="container">
-            <h2 class="section-title">
-                <span class="prompt-symbol">root0emir@cyrethium:~$</span> ls -la ./programming_languages
-            </h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/python.png" alt="Python"></div>
-                    <h3>Python</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+            <div class="section-header">
+                <div class="section-terminal">
+                    <span class="prompt-symbol">$</span>
+                    <span class="section-command">neofetch --skills</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/bash.png" alt="Bash"></div>
-                    <h3>Bash</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/lua.png" alt="Lua"></div>
-                    <h3>Lua</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/go.png" alt="Go"></div>
-                    <h3>Go</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/perl.png" alt="Perl"></div>
-                    <h3>Perl</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 78%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/c.png" alt="C"></div>
-                    <h3>C</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/ansible.png" alt="Ansible"></div>
-                    <h3>Ansible</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon"><img src="Assets/js.png" alt="JavaScript"></div>
-                    <h3>JavaScript</h3>
-                    <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                <h2 class="section-title">Skills & <span class="accent">Tools</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Programming Languages -->
+            <div class="skills-category">
+                <h3 class="category-title">
+                    <i class="fas fa-code"></i>
+                    Programming Languages
+                </h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/python.png" alt="Python">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Python</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/bash.png" alt="Bash">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Bash</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/go.png" alt="Go">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Go</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/js.png" alt="JavaScript">
+                        </div>
+                        <div class="skill-info">
+                            <h4>JavaScript</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/lua.png" alt="Lua">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Lua</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="82"></div>
+                            </div>
+                            <span class="skill-percent">82%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/c.png" alt="C">
+                        </div>
+                        <div class="skill-info">
+                            <h4>C</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/perl.png" alt="Perl">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Perl</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="78"></div>
+                            </div>
+                            <span class="skill-percent">78%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="Assets/ansible.png" alt="Ansible">
+                        </div>
+                        <div class="skill-info">
+                            <h4>Ansible</h4>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Cyber Security Tools Section -->
-    <section class="tools" id="tools">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="prompt-symbol">root0emir@cyrethium:~$</span> ls -la ./cyber_tools
-            </h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <h3>Nessus</h3>
-                    <p>Security Scanner</p>
-                </div>
-                <div class="tool-card">
-                    <h3>Wireshark</h3>
-                    <p>Packet Analysis</p>
-                </div>
-                <div class="tool-card">
-                    <h3>Metasploit</h3>
-                    <p>Exploitation Framework</p>
-                </div>
-                <div class="tool-card">
-                    <h3>ELK Stack</h3>
-                    <p>SIEM</p>
-                </div>
-                <div class="tool-card">
-                    <h3>Suricata</h3>
-                    <p>IDS/IPS</p>
-                </div>
-                <div class="tool-card">
-                    <h3>Zeek</h3>
-                    <p>Network Security Monitor</p>
-                </div>
-                <div class="tool-card">
-                    <h3>Falco</h3>
-                    <p>Runtime Security</p>
-                </div>
-                <div class="tool-card">
-                    <h3>MISP</h3>
-                    <p>Incident Response</p>
-                </div>
-                <div class="tool-card">
-                    <h3>Snort</h3>
-                    <p>IDS/IPS</p>
-                </div>
-                <div class="tool-card">
-                    <h3>OSQuery</h3>
-                    <p>Threat Hunting</p>
+            <!-- Security Tools -->
+            <div class="skills-category">
+                <h3 class="category-title">
+                    <i class="fas fa-shield-halved"></i>
+                    Security Tools
+                </h3>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <i class="fas fa-bug"></i>
+                        <h4>Nessus</h4>
+                        <span>Vulnerability Scanner</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Wireshark</h4>
+                        <span>Packet Analysis</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-crosshairs"></i>
+                        <h4>Metasploit</h4>
+                        <span>Exploitation Framework</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>ELK Stack</h4>
+                        <span>SIEM</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h4>Suricata</h4>
+                        <span>IDS/IPS</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-eye"></i>
+                        <h4>Zeek</h4>
+                        <span>Network Monitor</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-crow"></i>
+                        <h4>Falco</h4>
+                        <span>Runtime Security</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-share-nodes"></i>
+                        <h4>MISP</h4>
+                        <span>Threat Intelligence</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-shield-virus"></i>
+                        <h4>Snort</h4>
+                        <span>IDS/IPS</span>
+                    </div>
+                    <div class="tool-card">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <h4>OSQuery</h4>
+                        <span>Threat Hunting</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Technologies/Frameworks Section -->
-    <section class="technologies" id="technologies">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="prompt-symbol">root0emir@cyrethium:~$</span> cat frameworks.json
-            </h2>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-header">
-                        <img src="Assets/apparmor.png" alt="Apparmor">
-                        <h3>Apparmor</h3>
+            <!-- Technologies -->
+            <div class="skills-category">
+                <h3 class="category-title">
+                    <i class="fas fa-microchip"></i>
+                    Technologies & Frameworks
+                </h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <img src="Assets/apparmor.png" alt="AppArmor">
+                        </div>
+                        <div class="tech-info">
+                            <h4>AppArmor</h4>
+                            <p>Limits application actions using file-based security profiles</p>
+                            <div class="tech-tags">
+                                <span>Security</span>
+                                <span>Linux</span>
+                            </div>
+                        </div>
                     </div>
-                    <p>Limits application actions using file-based security profiles</p>
-                    <div class="tech-tags">
-                        <span class="tag">Security</span>
-                        <span class="tag">Linux</span>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <img src="Assets/selinux.png" alt="SELinux">
+                        </div>
+                        <div class="tech-info">
+                            <h4>SELinux</h4>
+                            <p>Enforces mandatory access control policies for system processes</p>
+                            <div class="tech-tags">
+                                <span>Security</span>
+                                <span>Linux</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-header">
-                        <img src="Assets/selinux.png" alt="SELinux">
-                        <h3>SELinux</h3>
-                    </div>
-                    <p>Enforces mandatory access control policies for system processes</p>
-                    <div class="tech-tags">
-                        <span class="tag">Security</span>
-                        <span class="tag">Linux</span>
-                    </div>
-                </div>
-                <div class="tech-card">
-                    <div class="tech-header">
-                        <img src="Assets/docker.png" alt="Docker">
-                        <h3>Docker / Kubernetes</h3>
-                    </div>
-                    <p>Containerization and orchestration for scalable cloud deployments</p>
-                    <div class="tech-tags">
-                        <span class="tag">DevOps</span>
-                        <span class="tag">Cloud</span>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <img src="Assets/docker.png" alt="Docker">
+                        </div>
+                        <div class="tech-info">
+                            <h4>Docker / Kubernetes</h4>
+                            <p>Containerization and orchestration for scalable deployments</p>
+                            <div class="tech-tags">
+                                <span>DevOps</span>
+                                <span>Cloud</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,36 +740,105 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">
-                <span class="prompt-symbol">root0emir@cyrethium:~$</span> ./contact.sh
-            </h2>
+            <div class="section-header">
+                <div class="section-terminal">
+                    <span class="prompt-symbol">$</span>
+                    <span class="section-command">./contact.sh --init</span>
+                </div>
+                <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
+                <div class="section-line"></div>
+            </div>
+
             <div class="contact-content">
-                <div class="social-links">
-                    <a href="https://github.com/root0emir" target="_blank" class="social-card">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
+                <div class="contact-info">
+                    <div class="contact-terminal">
+                        <div class="terminal-header-mini">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title-mini">contact.sh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="terminal-line"><span class="comment"># Establishing secure connection...</span>
+                            </p>
+                            <p class="terminal-line"><span class="prompt">$</span> <span class="command">echo
+                                    $CONTACT_INFO</span></p>
+                            <p class="terminal-line output">Ready to collaborate on security projects</p>
+                            <p class="terminal-line"><span class="prompt">$</span> <span class="command">cat
+                                    email.txt</span></p>
+                            <p class="terminal-line output email-output">root0emir@protonmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-grid">
+                    <a href="https://github.com/root0emir" target="_blank" class="social-card github">
+                        <div class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="social-info">
+                            <h4>GitHub</h4>
+                            <span>@root0emir</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://linkedin.com/in/emir837" target="_blank" class="social-card">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
+                    <a href="https://linkedin.com/in/emir837" target="_blank" class="social-card linkedin">
+                        <div class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="social-info">
+                            <h4>LinkedIn</h4>
+                            <span>Connect</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://youtube.com/@root0emir" target="_blank" class="social-card">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
+                    <a href="https://youtube.com/@root0emir" target="_blank" class="social-card youtube">
+                        <div class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="social-info">
+                            <h4>YouTube</h4>
+                            <span>@root0emir</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://x.com/root0emir" target="_blank" class="social-card">
-                        <i class="fab fa-twitter"></i>
-                        <span>X</span>
+                    <a href="https://x.com/root0emir" target="_blank" class="social-card twitter">
+                        <div class="social-icon">
+                            <i class="fab fa-x-twitter"></i>
+                        </div>
+                        <div class="social-info">
+                            <h4>X (Twitter)</h4>
+                            <span>@root0emir</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://medium.com/@root0emir" target="_blank" class="social-card medium">
+                        <div class="social-icon">
+                            <i class="fab fa-medium"></i>
+                        </div>
+                        <div class="social-info">
+                            <h4>Medium</h4>
+                            <span>@root0emir</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://youtube.com/@linux-tech-channel" target="_blank" class="social-card youtube">
+                        <div class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="social-info">
+                            <h4>YouTube</h4>
+                            <span>Linux Tech Channel</span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
-                <div class="email-section">
-                    <div class="email-display">
-                        <i class="fas fa-envelope"></i>
-                        <span class="email-text">root0emir@protonmail.com</span>
-                    </div>
-                    <a href="mailto:root0emir@protonmail.com" class="send-mail-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Mail
+
+                <div class="email-cta">
+                    <a href="mailto:root0emir@protonmail.com" class="email-button">
+                        <span class="email-icon"><i class="fas fa-paper-plane"></i></span>
+                        <span class="email-text">Send Mail</span>
+                        <span class="email-address">root0emir@protonmail.com</span>
                     </a>
                 </div>
             </div>
@@ -245,15 +847,31 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p><span class="cursor-blink">></span> root0emir@cyrethium:~$ exit</p>
-            <p class="copyright">© 2025 root0emir | All rights reserved </p>
+        <div class="footer-content">
+            <div class="footer-terminal">
+                <span class="prompt-user">root0emir</span><span class="prompt-at">@</span><span
+                    class="prompt-host">portfolio</span><span class="prompt-colon">:</span><span
+                    class="prompt-path">~</span><span class="prompt-dollar">$</span>
+                <span class="footer-command">exit</span>
+            </div>
+            <div class="footer-line"></div>
+            <p class="copyright">
+                <span class="bracket">[</span> © 2026 root0emir <span class="separator">|</span> All rights reserved
+                <span class="bracket">]</span>
+            </p>
+            <p class="footer-tagline">
+                <span class="cursor-blink">></span> Securing the digital frontier, one system at a time.
+            </p>
         </div>
     </footer>
 
-    <!-- Matrix Background Effect -->
-    <canvas id="matrix-bg"></canvas>
+    <!-- Image Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close"><i class="fas fa-times"></i></button>
+        <img src="" alt="Screenshot" class="lightbox-img" id="lightbox-img">
+    </div>
 
     <script src="static/script.js"></script>
 </body>
+
 </html>
