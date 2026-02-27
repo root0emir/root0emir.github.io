@@ -1,557 +1,276 @@
-/* ================================================
-   ROOT0EMIR PORTFOLIO - ADVANCED MATRIX EFFECTS
-   Interactive Animations & Visual Effects
-   ================================================ */
+/* ============================================
+   ROOT0EMIR 
+   ============================================ */
 
-// ================================================
-// MATRIX RAIN EFFECT
-// ================================================
-class MatrixRain {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        if (!this.canvas) return;
-
-        this.ctx = this.canvas.getContext('2d');
-        this.chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()';
-        this.fontSize = 14;
-        this.drops = [];
-
-        this.init();
-        this.animate();
-
-        window.addEventListener('resize', () => this.init());
-    }
-
-    init() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.columns = Math.floor(this.canvas.width / this.fontSize);
-        this.drops = Array(this.columns).fill(1);
-    }
-
-    draw() {
-        // Fade effect
-        this.ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Green matrix text
-        this.ctx.fillStyle = '#00ff41';
-        this.ctx.font = `${this.fontSize}px 'JetBrains Mono', monospace`;
-
-        for (let i = 0; i < this.drops.length; i++) {
-            const char = this.chars[Math.floor(Math.random() * this.chars.length)];
-            const x = i * this.fontSize;
-            const y = this.drops[i] * this.fontSize;
-
-            // Random brightness for depth effect
-            const alpha = Math.random() * 0.5 + 0.5;
-            this.ctx.fillStyle = `rgba(0, 255, 65, ${alpha})`;
-            this.ctx.fillText(char, x, y);
-
-            // Reset drop randomly
-            if (y > this.canvas.height && Math.random() > 0.975) {
-                this.drops[i] = 0;
-            }
-            this.drops[i]++;
-        }
-    }
-
-    animate() {
-        this.draw();
-        requestAnimationFrame(() => this.animate());
-    }
+// === Navbar scroll effect ===
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
 }
 
-// ================================================
-// PARTICLE SYSTEM
-// ================================================
-class ParticleSystem {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        if (!this.canvas) return;
-
-        this.ctx = this.canvas.getContext('2d');
-        this.particles = [];
-        this.mouse = { x: null, y: null, radius: 150 };
-        this.particleCount = 100;
-        this.colors = ['#00ff41', '#00f0ff', '#ff00ff'];
-
-        this.init();
-        this.animate();
-
-        window.addEventListener('resize', () => this.init());
-        window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.x;
-            this.mouse.y = e.y;
-        });
-    }
-
-    init() {
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.particles = [];
-
-        for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push(new Particle(this));
-        }
-    }
-
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        for (let particle of this.particles) {
-            particle.update();
-            particle.draw();
-        }
-
-        this.connectParticles();
-        requestAnimationFrame(() => this.animate());
-    }
-
-    connectParticles() {
-        const maxDistance = 120;
-
-        for (let i = 0; i < this.particles.length; i++) {
-            for (let j = i + 1; j < this.particles.length; j++) {
-                const dx = this.particles[i].x - this.particles[j].x;
-                const dy = this.particles[i].y - this.particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < maxDistance) {
-                    const opacity = (1 - distance / maxDistance) * 0.3;
-                    this.ctx.strokeStyle = `rgba(0, 255, 65, ${opacity})`;
-                    this.ctx.lineWidth = 1;
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
-                    this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                    this.ctx.stroke();
-                }
-            }
-        }
-    }
-}
-
-class Particle {
-    constructor(system) {
-        this.system = system;
-        this.x = Math.random() * system.canvas.width;
-        this.y = Math.random() * system.canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.color = system.colors[Math.floor(Math.random() * system.colors.length)];
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // Mouse interaction
-        if (this.system.mouse.x && this.system.mouse.y) {
-            const dx = this.x - this.system.mouse.x;
-            const dy = this.y - this.system.mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < this.system.mouse.radius) {
-                const force = (this.system.mouse.radius - distance) / this.system.mouse.radius;
-                this.x += dx * force * 0.02;
-                this.y += dy * force * 0.02;
-            }
-        }
-
-        // Wrap around edges
-        if (this.x < 0) this.x = this.system.canvas.width;
-        if (this.x > this.system.canvas.width) this.x = 0;
-        if (this.y < 0) this.y = this.system.canvas.height;
-        if (this.y > this.system.canvas.height) this.y = 0;
-    }
-
-    draw() {
-        this.system.ctx.fillStyle = this.color;
-        this.system.ctx.beginPath();
-        this.system.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        this.system.ctx.fill();
-
-        // Glow effect
-        this.system.ctx.shadowBlur = 10;
-        this.system.ctx.shadowColor = this.color;
-    }
-}
-
-// ================================================
-// TYPEWRITER EFFECT
-// ================================================
-class Typewriter {
-    constructor(elementId, phrases, typeSpeed = 100, deleteSpeed = 50, pauseTime = 2000) {
-        this.element = document.getElementById(elementId);
-        if (!this.element) return;
-
-        this.phrases = phrases;
-        this.typeSpeed = typeSpeed;
-        this.deleteSpeed = deleteSpeed;
-        this.pauseTime = pauseTime;
-        this.phraseIndex = 0;
-        this.charIndex = 0;
-        this.isDeleting = false;
-
-        this.type();
-    }
-
-    type() {
-        const currentPhrase = this.phrases[this.phraseIndex];
-
-        if (this.isDeleting) {
-            this.element.textContent = currentPhrase.substring(0, this.charIndex - 1);
-            this.charIndex--;
+// === Mobile menu toggle ===
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const spans = navToggle.querySelectorAll('span');
+        if (navLinks.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
         } else {
-            this.element.textContent = currentPhrase.substring(0, this.charIndex + 1);
-            this.charIndex++;
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
         }
+    });
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const spans = navToggle.querySelectorAll('span');
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
+        });
+    });
+}
 
-        let timeout = this.isDeleting ? this.deleteSpeed : this.typeSpeed;
-
-        if (!this.isDeleting && this.charIndex === currentPhrase.length) {
-            timeout = this.pauseTime;
-            this.isDeleting = true;
-        } else if (this.isDeleting && this.charIndex === 0) {
-            this.isDeleting = false;
-            this.phraseIndex = (this.phraseIndex + 1) % this.phrases.length;
-            timeout = 500;
+// === Reveal on scroll ===
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
         }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        setTimeout(() => this.type(), timeout);
-    }
-}
+revealElements.forEach(el => revealObserver.observe(el));
 
-// ================================================
-// ANIMATED COUNTER
-// ================================================
-class AnimatedCounter {
-    constructor(element, target, duration = 2000) {
-        this.element = element;
-        this.target = target;
-        this.duration = duration;
-        this.startTime = null;
-        this.started = false;
-    }
-
-    start() {
-        if (this.started) return;
-        this.started = true;
-        this.animate();
-    }
-
-    animate(timestamp) {
-        if (!this.startTime) this.startTime = timestamp;
-
-        const progress = Math.min((timestamp - this.startTime) / this.duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(easeOut * this.target);
-
-        this.element.textContent = current;
-
-        if (progress < 1) {
-            requestAnimationFrame((t) => this.animate(t));
-        } else {
-            this.element.textContent = this.target;
+// === Stat counter animation ===
+const statNums = document.querySelectorAll('.stat-num[data-count]');
+const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-count'));
+            let current = 0;
+            const increment = target / 40;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.floor(current) + '+';
+            }, 40);
+            statObserver.unobserve(el);
         }
-    }
-}
+    });
+}, { threshold: 0.5 });
 
-// ================================================
-// SCROLL ANIMATIONS
-// ================================================
-class ScrollAnimations {
-    constructor() {
-        this.observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+statNums.forEach(el => statObserver.observe(el));
 
-        this.init();
-    }
+// === Skill bar animation ===
+const skillBars = document.querySelectorAll('.skill-bar-fill[data-progress]');
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const progress = el.getAttribute('data-progress');
+            setTimeout(() => {
+                el.style.width = progress + '%';
+            }, 200);
+            skillObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.3 });
 
-    init() {
-        // Animate cards on scroll
-        const animatedElements = document.querySelectorAll(
-            '.project-card, .skill-card, .tool-card, .tech-card, .social-card, .about-card'
-        );
+skillBars.forEach(el => skillObserver.observe(el));
 
-        animatedElements.forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
-        });
+// === Blog/Article Modal System ===
+(function () {
+    // Create modal overlay once
+    const overlay = document.createElement('div');
+    overlay.className = 'blog-modal-overlay';
+    overlay.innerHTML = `
+        <div class="blog-modal">
+            <button class="blog-modal-close"><i class="fas fa-times"></i></button>
+            <div class="blog-modal-tag"></div>
+            <h2 class="blog-modal-title"></h2>
+            <p class="blog-modal-desc"></p>
+            <div class="blog-modal-body"></div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, this.observerOptions);
+    const modal = overlay.querySelector('.blog-modal');
+    const closeBtn = overlay.querySelector('.blog-modal-close');
+    const modalTag = overlay.querySelector('.blog-modal-tag');
+    const modalTitle = overlay.querySelector('.blog-modal-title');
+    const modalDesc = overlay.querySelector('.blog-modal-desc');
+    const modalBody = overlay.querySelector('.blog-modal-body');
 
-        animatedElements.forEach(el => observer.observe(el));
+    function openModal(card) {
+        const title = card.querySelector('.blog-card-header h3')?.textContent || '';
+        const tag = card.querySelector('.tag')?.textContent || '';
+        const desc = card.querySelector(':scope > p')?.textContent || '';
+        const excerpt = card.querySelector('.blog-excerpt');
+        const content = excerpt ? excerpt.innerHTML : '';
 
-        // Animate skill bars
-        const skillBars = document.querySelectorAll('.skill-progress');
+        modalTag.textContent = tag;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        modalBody.innerHTML = content;
 
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progress = entry.target.dataset.progress;
-                    entry.target.style.width = `${progress}%`;
-                }
-            });
-        }, this.observerOptions);
-
-        skillBars.forEach(bar => skillObserver.observe(bar));
-
-        // Animate counters
-        const counters = document.querySelectorAll('.stat-value[data-count]');
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.dataset.count);
-                    const counter = new AnimatedCounter(entry.target, target);
-                    requestAnimationFrame((t) => counter.animate(t));
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, this.observerOptions);
-
-        counters.forEach(counter => counterObserver.observe(counter));
-    }
-}
-
-// ================================================
-// NAVIGATION
-// ================================================
-class Navigation {
-    constructor() {
-        this.navbar = document.getElementById('navbar');
-        this.navLinks = document.querySelectorAll('.nav-link');
-        this.sections = document.querySelectorAll('section');
-
-        this.init();
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        modal.scrollTop = 0;
     }
 
-    init() {
-        // Scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                this.navbar.classList.add('scrolled');
-            } else {
-                this.navbar.classList.remove('scrolled');
-            }
-
-            this.updateActiveLink();
-        });
-
-        // Smooth scroll
-        this.navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    }
-
-    updateActiveLink() {
-        let current = '';
-
-        this.sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        this.navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('data-section') === current) {
-                link.classList.add('active');
-            }
-        });
-    }
-}
-
-// ================================================
-// LIGHTBOX
-// ================================================
-class Lightbox {
-    constructor() {
-        this.lightbox = document.getElementById('lightbox');
-        this.lightboxImg = document.getElementById('lightbox-img');
-        this.screenshots = document.querySelectorAll('.project-screenshot');
-
-        if (!this.lightbox) return;
-
-        this.init();
-    }
-
-    init() {
-        this.screenshots.forEach(screenshot => {
-            screenshot.addEventListener('click', () => {
-                const img = screenshot.querySelector('img');
-                if (img) {
-                    this.lightboxImg.src = img.src;
-                    this.lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-
-        this.lightbox.addEventListener('click', (e) => {
-            if (e.target === this.lightbox || e.target.closest('.lightbox-close')) {
-                this.close();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.close();
-        });
-    }
-
-    close() {
-        this.lightbox.classList.remove('active');
+    function closeModal() {
+        overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
-}
 
-// ================================================
-// CONSOLE WELCOME MESSAGE
-// ================================================
-function consoleWelcome() {
-    const styles = {
-        header: 'color: #00ff41; font-family: monospace; font-size: 12px;',
-        text: 'color: #00f0ff; font-family: monospace; font-size: 14px;',
-        accent: 'color: #ff00ff; font-family: monospace; font-size: 12px; font-weight: bold;'
-    };
+    // Close on button click
+    closeBtn.addEventListener('click', closeModal);
 
-    console.log('%c╔══════════════════════════════════════════════════════════╗', styles.header);
-    console.log('%c║                                                          ║', styles.header);
-    console.log('%c║   ██████╗  ██████╗  ██████╗ ████████╗ ██████╗            ║', styles.header);
-    console.log('%c║   ██╔══██╗██╔═══██╗██╔═══██╗╚══██╔══╝██╔═████╗           ║', styles.header);
-    console.log('%c║   ██████╔╝██║   ██║██║   ██║   ██║   ██║██╔██║           ║', styles.header);
-    console.log('%c║   ██╔══██╗██║   ██║██║   ██║   ██║   ████╔╝██║           ║', styles.header);
-    console.log('%c║   ██║  ██║╚██████╔╝╚██████╔╝   ██║   ╚██████╔╝           ║', styles.header);
-    console.log('%c║   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝    ╚═════╝            ║', styles.header);
-    console.log('%c║                                                          ║', styles.header);
-    console.log('%c║   EMIR - CYBERSECURITY RESEARCHER                        ║', styles.header);
-    console.log('%c║                                                          ║', styles.header);
-    console.log('%c╚══════════════════════════════════════════════════════════╝', styles.header);
-    console.log('%c> System Status: ONLINE', styles.text);
-    console.log('%c> Access Level: GRANTED', styles.accent);
-    console.log('%c> Welcome to the Digital Fortress', styles.text);
-}
+    // Close on overlay click (not modal itself)
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
 
-// ================================================
-// GLITCH EFFECT ON HOVER
-// ================================================
-function initGlitchEffect() {
-    const glitchElements = document.querySelectorAll('.title-line.accent');
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            closeModal();
+        }
+    });
 
-    glitchElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            el.style.animation = 'glitch 0.3s infinite';
-        });
-
-        el.addEventListener('mouseleave', () => {
-            el.style.animation = 'text-glow 2s ease-in-out infinite alternate';
+    // Attach click to all blog cards
+    document.querySelectorAll('.blog-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(card);
         });
     });
-}
+})();
 
-// ================================================
-// PARALLAX EFFECT
-// ================================================
-function initParallax() {
-    const heroContent = document.querySelector('.hero-content');
+// === Particle Canvas Background ===
+const canvas = document.getElementById('bg-particles');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const particleCount = 60;
 
-    if (!heroContent) return;
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        heroContent.style.opacity = 1 - (scrolled * 0.002);
-    });
-}
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.5;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.opacity = Math.random() * 0.4 + 0.1;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(89, 148, 255, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
 
-// ================================================
-// MAGNETIC BUTTONS
-// ================================================
-function initMagneticButtons() {
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
 
-    buttons.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
+    function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(89, 148, 255, ${0.05 * (1 - dist / 150)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
 
-            btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
         });
-
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = '';
-        });
-    });
+        connectParticles();
+        requestAnimationFrame(animate);
+    }
+    animate();
 }
 
-// ================================================
-// INITIALIZE EVERYTHING
-// ================================================
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize effects
-    new MatrixRain('matrix-bg');
-    new ParticleSystem('particles');
+// === Typed text effect on hero ===
+const typedEl = document.getElementById('typed-text');
+if (typedEl) {
+    const texts = [
+        'cat /etc/security/hardening.conf',
+        'systemctl status firewall',
+        'nmap -sV --script vuln target',
+        'tail -f /var/log/syslog',
+        'iptables -L -n -v'
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-    // Initialize typewriter
-    new Typewriter('typed-text', [
-        ' whoami',
-        ' cat skills.txt',
-        ' ls -la ./projects',
-        ' ./security-scan.sh',
-        ' neofetch'
-    ], 100, 50, 2000);
+    function typeEffect() {
+        const currentText = texts[textIndex];
+        if (isDeleting) {
+            typedEl.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typedEl.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
 
-    // Initialize scroll animations
-    new ScrollAnimations();
+        let delay = isDeleting ? 30 : 60;
 
-    // Initialize navigation
-    new Navigation();
+        if (!isDeleting && charIndex === currentText.length) {
+            delay = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            delay = 500;
+        }
 
-    // Initialize lightbox
-    new Lightbox();
-
-    // Initialize other effects
-    initGlitchEffect();
-    initParallax();
-    initMagneticButtons();
-
-    // Console welcome
-    consoleWelcome();
-
-    // Add loaded class to body
-    document.body.classList.add('loaded');
-});
-
-// Reduce motion for users who prefer it
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.style.setProperty('--transition-fast', '0s');
-    document.documentElement.style.setProperty('--transition-normal', '0s');
-    document.documentElement.style.setProperty('--transition-slow', '0s');
+        setTimeout(typeEffect, delay);
+    }
+    typeEffect();
 }

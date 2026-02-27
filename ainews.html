@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News | root0emir</title>
+    <meta name="description" content="Latest AI and machine learning news from TechCrunch.">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="Assets/root0icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .news-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px 28px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .news-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26, 92, 245, 0.15);
+            color: inherit;
+        }
+
+        .news-card:hover::before {
+            opacity: 1;
+        }
+
+        .news-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .news-card-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .news-tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            font-weight: 500;
+            white-space: nowrap;
+            flex-shrink: 0;
+            background: rgba(168, 85, 247, 0.1);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 14px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .news-meta i {
+            color: var(--blue-400);
+            font-size: 0.7rem;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--blue-400);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: auto;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-link {
+            color: var(--cyan-400);
+        }
+
+        .news-link i {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover .news-link i {
+            transform: translateX(3px);
+        }
+
+        .news-loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .news-loading .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(89, 148, 255, 0.1);
+            border-top-color: var(--blue-400);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .news-error {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .news-error i {
+            font-size: 2rem;
+            color: rgba(239, 68, 68, 0.5);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .news-source {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .news-source a {
+            color: var(--blue-400);
+            text-decoration: none;
+        }
+
+        .news-source a:hover {
+            color: var(--cyan-400);
+        }
+
+        .refresh-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blue-400);
+            background: rgba(89, 148, 255, 0.08);
+            border: 1px solid rgba(89, 148, 255, 0.15);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-main);
+        }
+
+        .refresh-btn:hover {
+            background: rgba(89, 148, 255, 0.15);
+            border-color: rgba(89, 148, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .refresh-btn.loading i {
+            animation: spin 0.8s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <canvas id="bg-particles" class="bg-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon"><img src="Assets/root0icon.png" alt="Killrozero"></div>Killrozero<span
+                    class="accent"></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="distros.html">Distro's</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="articles.html">Articles</a>
+                <a href="ainews.html" class="active">AI News</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"
+                aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="page-content" style="padding-top:calc(var(--nav-height) + 40px);">
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>AI <span class="accent">News</span></h2>
+                    <p>Latest artificial intelligence news, powered by TechCrunch RSS.</p>
+                    <div style="margin-top:16px;">
+                        <button class="refresh-btn" id="refresh-news" onclick="loadNews()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div id="news-container">
+                    <div class="news-loading">
+                        <div class="spinner"></div>
+                        <p>Loading latest AI news...</p>
+                    </div>
+                </div>
+
+                <div class="news-source">
+                    <p>News sourced from <a href="https://techcrunch.com/category/artificial-intelligence/"
+                            target="_blank">TechCrunch AI</a> via RSS</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="footer-brand">root0emir</span>
+            <p>2026 root0emir | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="static/script.js"></script>
+    <script>
+        const CORS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=';
+        const RSS_URL = 'https://techcrunch.com/category/artificial-intelligence/feed/';
+        const container = document.getElementById('news-container');
+        const refreshBtn = document.getElementById('refresh-news');
+
+        function timeAgo(dateStr) {
+            const now = new Date();
+            const date = new Date(dateStr);
+            const diff = Math.floor((now - date) / 1000);
+            if (diff < 60) return 'Just now';
+            if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+            if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+            if (diff < 604800) return Math.floor(diff / 86400) + 'd ago';
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function stripHtml(html) {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || '';
+        }
+
+        async function loadNews() {
+            refreshBtn.classList.add('loading');
+            container.innerHTML = `
+                <div class="news-loading">
+                    <div class="spinner"></div>
+                    <p>Loading latest AI news...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(CORS_PROXY + encodeURIComponent(RSS_URL));
+                const data = await response.json();
+
+                if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+                    throw new Error('No articles found');
+                }
+
+                let html = '<div class="news-grid">';
+                data.items.forEach(item => {
+                    const title = item.title || 'Untitled';
+                    const desc = stripHtml(item.description || item.content || '').substring(0, 200);
+                    const link = item.link || '#';
+                    const date = item.pubDate || '';
+                    const author = item.author || 'TechCrunch';
+                    const categories = item.categories || [];
+                    const tagText = categories.length > 0 ? categories[0] : 'AI';
+
+                    html += `
+                        <a href="${link}" target="_blank" class="news-card reveal">
+                            <div class="news-card-header">
+                                <h3>${title}</h3>
+                                <span class="news-tag">${tagText}</span>
+                            </div>
+                            <p>${desc}...</p>
+                            <div class="news-meta">
+                                <span><i class="fas fa-clock"></i> ${timeAgo(date)}</span>
+                                <span><i class="fas fa-user"></i> ${author}</span>
+                                <span class="news-link">Read <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    `;
+                });
+                html += '</div>';
+                container.innerHTML = html;
+
+                // Re-observe new elements for reveal animation
+                const revealElements = container.querySelectorAll('.reveal');
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                revealElements.forEach(el => revealObserver.observe(el));
+
+            } catch (error) {
+                container.innerHTML = `
+                    <div class="news-error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Could not load news. Please try again later.</p>
+                        <p style="font-size:0.75rem;margin-top:8px;opacity:0.5;">${error.message}</p>
+                    </div>
+                `;
+            }
+
+            refreshBtn.classList.remove('loading');
+        }
+
+        // Load news on page load
+        loadNews();
+    </script>
+</body>
+
+</html>

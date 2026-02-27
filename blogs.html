@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | root0emir</title>
+    <meta name="description" content="Blog posts by root0emir on Linux, software development, AI/ML, and more.">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="Assets/root0icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <canvas id="bg-particles" class="bg-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon"><img src="Assets/root0icon.png" alt="Killrozero"></div>Killrozero<span
+                    class="accent"></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="distros.html">Distro's</a>
+                <a href="blogs.html" class="active">Blogs</a>
+                <a href="articles.html">Articles</a>
+                <a href="ainews.html">AI News</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"
+                aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="page-content" style="padding-top:calc(var(--nav-height) + 40px);">
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Blog <span class="accent">Posts</span></h2>
+                    <p>Thoughts on Linux, software development, AI, and tech, written from personal experience.</p>
+                </div>
+
+                <div class="blog-grid">
+
+                    <!-- Blog: Zenclora OS -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Zenclora OS: An Anti-Bloat, Easy-to-Use Distro</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>How I built a Debian-based distro that actually respects the user's time and disk space.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>I keep an eye on new Debian-based distros regularly, I like to see what people are
+                                    building. But honestly? Most of the time it is just another distro with a different
+                                    wallpaper and the same bloated software stack. LibreOffice, video editors, audio
+                                    studios... do I really need all that out of the box? No. Nobody asked for it, but it
+                                    comes pre-installed anyway.</p>
+                                <p>That is exactly why I started Zenclora. I wanted a bloat-free, easy-to-use distro
+                                    that works for everyone without forcing unnecessary software down your throat. You
+                                    install what you need, nothing more.</p>
+                                <p>One of the most annoying things about Debian is that many popular packages are not in
+                                    the repos. Steam, Spotify, VSCode, Brave... you have to hunt down repos and keys on
+                                    the internet. That is a terrible experience especially for newcomers. So I developed
+                                    something to fix this.</p>
+                                <p>I created shortcut commands that make the whole process instant. Instead of searching
+                                    the internet for an hour, you just type: <code>install-brave</code>,
+                                    <code>install-steam</code>, <code>install-vscode</code>,
+                                    <code>install-spotify</code>, <code>install-flatpak</code>. That is it. Your entire
+                                    setup is done in about a minute. On vanilla Debian that would easily take an hour or
+                                    more.
+                                </p>
+                                <p>System management is the same story. Updating everything? <code>sudo update</code>.
+                                    Cleaning up unused packages? <code>sudo cleanup</code>. Changing DNS?
+                                    <code>sudo change-dns</code>. No digging through config files, no getting lost in
+                                    the terminal.
+                                </p>
+                                <p>In the 2.0 update, I consolidated all these commands under ZPM (Zen Package Manager).
+                                    Now you have even more system control commands, package removal support, and some
+                                    handy little utilities. Examples: <code>sudo zen install steam</code>,
+                                    <code>sudo zen system dns</code>, <code>sudo zen tools formatusb</code>.
+                                </p>
+                                <p>I usually do not use my own distros because I test them so many times in VMs and live
+                                    boots that the fun wears off. But Zenclora was different. I actually used it for a
+                                    long time because setting up my whole environment took literally one minute. That
+                                    says something.</p>
+                                <p>I am trying to do more than just change the wallpaper and slap KDE on Debian. I want
+                                    to actually solve problems and make things easier for new users.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Hardened Slarpx -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Hardened Slarpx: Pushing the Limits of Linux Hardening</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>A research project where I tried to see how far you can push system hardening.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>I asked myself one day: how far can I actually push hardening? Not the standard stuff
+                                    everyone does, but really testing the boundaries. In my free time I started a
+                                    research project and called it Hardened Slarpx.</p>
+                                <p>Heavy mitigations, aggressive hardening, and a strict firewall were the baseline. But
+                                    that was not enough for me, I was looking for something different. Beyond the
+                                    traditional hardening approach, my goal was this: the system would actively fight
+                                    back against attacks and sabotage the attacker's path.</p>
+                                <p>I developed two custom modules: <strong>Xennytsu</strong> and
+                                    <strong>Poison</strong>.
+                                </p>
+                                <p>While developing Xennytsu, I thought about it like this: there are certain suspicious
+                                    commands that a regular Linux user would never randomly execute. Xennytsu monitors
+                                    these and kills the process. It works on a whitelist basis, so it does not touch
+                                    normal Linux programs. It runs every 250ms, balancing performance and speed. It is
+                                    effective against automated exploits and mid-level attacks, but honestly it is
+                                    vulnerable to advanced exploits, very fast exploits, and kernel-level attacks.</p>
+                                <p>Poison takes a different approach. It adds random jitters to things like
+                                    <code>/dev/random</code> and <code>/dev/urandom</code> during suspicious activity.
+                                    Some exploits are very time-dependent, and these small perturbations aim to sabotage
+                                    the exploit's timing.
+                                </p>
+                                <p>The firewall is extremely strict. Only basic protocols like HTTPS, HTTP, and DNS are
+                                    allowed. The distro does not support system-level VPN or Tor. This is strict, yes,
+                                    but it fundamentally blocks many attacks like C2 and RAT connections. Even if an
+                                    attacker gets in, they probably cannot exfiltrate data. The system is also forced to
+                                    use Quad9 DNS and only allows known DNS services, so many suspicious domains get
+                                    blocked before they can even resolve.</p>
+                                <p>Unlike other hardened distros, Slarpx follows a no-logging policy. I disabled command
+                                    history and some other logs. Logs might seem important for security, but they are
+                                    also a huge advantage for attackers. Logs give away system information and help
+                                    attackers choose the right exploit. Let's be honest, how many people actually sit
+                                    there analyzing auditd logs to hunt down an attacker? Very few. Xennytsu, Poison,
+                                    and the other hardening mechanisms do their job silently. In my opinion, a silent
+                                    system is a more secure system because it gives away less information about you.</p>
+                                <p>For the next version I am planning to develop a more strict anti-log module at the
+                                    userspace level. The goal is to prevent information leakage as much as possible.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Top 8 OSINT Tools -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Top 8 Most Used OSINT Tools</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">OSINT</span>
+                        </div>
+                        <p>OSINT tools are indispensable for gathering information. Here are the ones I use and
+                            recommend the most.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Open Source Intelligence is one of the most used disciplines by security researchers
+                                    and pentesters. It means collecting information about a target entirely from
+                                    publicly available data without any direct access, and with the right tools you can
+                                    reach an incredible amount of information.</p>
+                                <p>The OSINT tools I use the most are: <strong>Maltego</strong>, which is unmatched in
+                                    data correlation and visualization. It is perfect for seeing connections between
+                                    targets. The graph-based interface makes it incredibly intuitive to map out
+                                    relationships between people, organizations, domains, and IP addresses. You can
+                                    write custom transforms or use community-built ones, which expands its capabilities
+                                    enormously.</p>
+                                <p><strong>theHarvester</strong> is great for collecting email addresses, subdomains,
+                                    and host information from various public sources like search engines, PGP key
+                                    servers, and the Shodan database. It is lightweight, fast, and perfect for the
+                                    initial reconnaissance phase.</p>
+                                <p><strong>Shodan</strong> is a search engine that indexes every internet-connected
+                                    device. From IoT devices to servers, you can find everything. What makes Shodan
+                                    truly powerful is its ability to search by specific banners, ports, protocols, and
+                                    even vulnerabilities. You would be surprised how many industrial control systems are
+                                    exposed to the internet.</p>
+                                <p><strong>SpiderFoot</strong> is very powerful for automated OSINT collection. It can
+                                    scan hundreds of data sources and correlate the findings automatically. Its modular
+                                    architecture means you can add new data sources easily.</p>
+                                <p><strong>Recon-ng</strong> has a modular structure similar to Metasploit. It provides
+                                    a familiar interface for anyone who has used Metasploit, with workspaces, modules,
+                                    and reporting capabilities built in.</p>
+                                <p><strong>OSINT Framework</strong> is a web-based resource collection where you can
+                                    quickly reach the tool you need. It categorizes OSINT resources by type.</p>
+                                <p><strong>Google Dorking</strong>, yes, Google itself is a tremendous OSINT tool. With
+                                    the right queries you can reach sensitive information like exposed documents, login
+                                    pages, configuration files, and database dumps. Operators like site:, filetype:,
+                                    inurl:, and intitle: are incredibly powerful when combined correctly.</p>
+                                <p>And finally <strong>Censys</strong>, similar to Shodan but more academically focused,
+                                    very useful for certificate and host searches. When you use these tools together,
+                                    you can create a comprehensive target profile. But remember, OSINT is not just about
+                                    collecting data, it is about correctly analyzing it.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Is AI Killing Cybersecurity -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Is AI Killing Cybersecurity?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">AI</span>
+                        </div>
+                        <p>AI is becoming a double-edged sword in the security world. Let's talk about where it helps
+                            and where it hurts.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>AI keeps getting better at both attacking and defending systems. On the defense side
+                                    LLMs can analyze logs and detect anomalies faster than any human team. They can
+                                    correlate events across millions of log entries, identify patterns that would take
+                                    analysts hours, and generate incident reports in seconds. On the attack side they
+                                    can generate phishing emails that are nearly indistinguishable from real ones, find
+                                    vulnerabilities at scale, and even write custom malware.</p>
+                                <p>What concerns me most is that AI lowers the barrier of entry for attackers
+                                    dramatically. You no longer need deep technical knowledge to launch sophisticated
+                                    attacks, an LLM can walk you through it step by step. Script kiddies now have access
+                                    to nation-state level sophistication. This was not possible even two years ago and
+                                    it
+                                    changes the entire threat landscape.</p>
+                                <p>On the other hand AI is also creating new jobs and roles. Prompt engineering for
+                                    security, AI red teaming, and model auditing are becoming real specializations.
+                                    Companies
+                                    are hiring people specifically to test AI systems for vulnerabilities and biases.
+                                    The
+                                    field is not dying, it is transforming. People who adapt will thrive but those
+                                    sticking to the old ways will struggle.</p>
+                                <p>I have seen tools like GitHub Copilot generate code with obvious security flaws,
+                                    SQL injections, hardcoded credentials, and missing input validation. Developers
+                                    blindly
+                                    accepting AI-generated code without review is creating a whole new class of
+                                    vulnerabilities. The irony is that AI is both the problem and the potential
+                                    solution.</p>
+                                <p>The real danger is not AI replacing humans, it is humans blindly trusting AI. AI
+                                    hallucinates, makes mistakes, and can be manipulated through prompt injection and
+                                    adversarial attacks. If we remove human oversight from the security pipeline, we are
+                                    building a house of cards. The winners will be the ones who learn to use AI as a
+                                    force multiplier while maintaining critical thinking and manual verification.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Best Pentesting Distros -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Best Pentesting Linux Distros?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>My personal ranking and honest opinions on the most popular pentesting distros out there.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>My ranking: 4-BackBox, 3-Kali, 2-Parrot, 1-Pentoo.</p>
+                                <p>BackBox looks clean and nice, and its built-in anonymous mode is pretty cool. But it
+                                    does not seem very actively maintained these days, which is a big downside if you
+                                    need up-to-date tools.</p>
+                                <p>Kali is the standard, everyone knows it. It is solid, well-maintained, and has the
+                                    largest tool collection. Honestly not much to criticize, it just works. If you are
+                                    starting out, Kali is fine.</p>
+                                <p>Parrot OS is hands down my favorite and I used it for a very long time. Anonsurf is
+                                    fantastic, the software selection is great, and it is incredibly stable. Unlike
+                                    Kali, you do not have to deal with constant breakage and update issues. It just
+                                    works without drama.</p>
+                                <p>Pentoo is my absolute favorite by a wide margin. Hardened Pentoo is both secure and
+                                    powerful. I love the customization flexibility that comes from Gentoo. The
+                                    installers remove Gentoo's notoriously complicated installation process. It does not
+                                    come bloated with software you will never use, you just pull the pentest tools you
+                                    actually need from the repos. Clean and efficient.</p>
+                                <p>One thing I want to mention is that the distro you use for pentesting matters less
+                                    than your actual skills. I have seen people obsess over which distro to use instead
+                                    of actually learning the methodology. Any of these distros will give you the tools,
+                                    but the knowledge has to come from you. Start with whichever feels comfortable and
+                                    focus on understanding what the tools actually do under the hood.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Lokinet -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>What is Lokinet?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Networking</span>
+                        </div>
+                        <p>My experience trying Lokinet on both Debian and Windows, and why it has potential.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>When I tried to install it on Debian I noticed the repo had not been signed in a long
+                                    time. I installed it anyway and wanted to try it out. I replaced the network
+                                    interface with Lokinet's to use it at the system level. After a lot of tinkering I
+                                    managed to ping .loki sites and it worked.</p>
+                                <p>However I could not use exit nodes. I tried exit.loki but it did not work. On Windows
+                                    it did not work at all, and I think they might have dropped Windows support in
+                                    recent updates.</p>
+                                <p>I think the biggest advantage of Lokinet is the ability to rent exit nodes. Most
+                                    sites and popular social media platforms now block Tor or hit you with endless
+                                    CAPTCHAs and extra verification. If the network were more active and updated more
+                                    frequently I would definitely rent an exit node.</p>
+                                <p>The biggest advantage over Tor is that it can anonymize traffic beyond just TCP. That
+                                    is a significant technical advantage that Tor simply cannot match due to its design
+                                    constraints. UDP, ICMP, everything goes through Lokinet. This opens up possibilities
+                                    for VoIP, gaming, and other latency-sensitive applications that simply do not work
+                                    over Tor.</p>
+                                <p>The underlying technology, Oxen's service node network, is interesting because node
+                                    operators have a financial incentive to keep their nodes running and performing
+                                    well.
+                                    This is a fundamentally different model from Tor where relay operators are
+                                    volunteers.
+                                    Whether this leads to a more reliable network long-term remains to be seen, but the
+                                    concept is sound.</p>
+                                <p>If Lokinet gets more active development and better documentation, I think it could
+                                    become a real alternative to Tor for many use cases. Right now it is still too rough
+                                    around the edges for daily use, but I am keeping an eye on it.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Distros for Newcomers -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Linux Distros I Recommend for Newcomers</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>If you are new to Linux, these are the distros I honestly think will give you the best first
+                            experience.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>My recommendations: 1-Pop!_OS, 2-Linux Mint, 3-Sparky Linux, 4-Zorin OS, 5-Big Linux.
+                                </p>
+                                <p>In my opinion the single biggest thing that makes Linux easy for new users is
+                                    software stores. With these distros you can do almost everything without ever
+                                    touching the command line. You open the store, search for the app, click install.
+                                    Done. Just like you would on Windows or macOS.</p>
+                                <p>Pop!_OS stands out with its excellent driver support especially for NVIDIA users.
+                                    Linux Mint feels like a comfortable home for Windows users. Sparky is impressively
+                                    lightweight yet full-featured. Zorin feels polished and premium. Big Linux is great
+                                    if you want something that works well out of the box with wide language support.</p>
+                                <p>The key is: do not start with Arch. Do not start with Gentoo. Start with something
+                                    that lets you actually use your computer while you learn Linux at your own pace. You
+                                    can always switch to more advanced distros later when you actually understand what
+                                    you are doing and why.</p>
+                                <p>I also want to add: do not let anyone tell you that you are not a "real Linux user"
+                                    because you use a beginner-friendly distro. That gatekeeping is toxic. Ubuntu, Mint,
+                                    Pop are all perfectly valid daily drivers. I know people who have been using Mint
+                                    for
+                                    years and are more productive than people who spend all day tweaking their Arch
+                                    config. Use whatever works for you and makes you productive.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Best Gaming Distros -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Best Linux Distros for Gaming</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>I have actually gamed seriously on Linux and here is what I think about the popular gaming
+                            distros.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>My ranking: 1-Garuda, 2-Bazzite, 3-Pop!_OS, 4-Nobara.</p>
+                                <p>The distro I used the longest was Garuda. I played many games on it and had zero
+                                    issues. In World of Warcraft Cata Classic I actually got more FPS than on Windows! I
+                                    installed the Gaming Edition and the Zen kernel provided a clearly noticeable FPS
+                                    boost. Driver support is already excellent on Garuda. The Chaotic-AUR gives you
+                                    access to pre-built AUR packages which means you do not have to compile everything
+                                    from source, huge time saver.</p>
+                                <p>I also used Nobara. Performance was good and it has kernel-level customizations, but
+                                    the updates were always problematic for me. Nobara's update process just did not
+                                    work well, updates would take hours and sometimes break things. I could not tolerate
+                                    that for long. That said, GloriousEggroll's work on Proton-GE is incredible and
+                                    Nobara benefits from that directly.</p>
+                                <p>Pop!_OS is not as performant as the others gaming-wise, but it wins on ease of use.
+                                    If you just want to game without fiddling with settings, it is a solid choice.
+                                    System76's NVIDIA driver integration is probably the best in the Linux world, which
+                                    matters a lot for gaming.</p>
+                                <p>I did not spend much time with Bazzite, but from what I saw the performance and ease
+                                    of use look promising. It is a relatively new distro but it is rapidly gaining a
+                                    good reputation in the Linux gaming community. The immutable base means you
+                                    basically cannot break your system, which is great if you like to tinker.</p>
+                                <p>Now let me talk about the gaming ecosystem in general. Proton and Wine have come
+                                    an incredibly long way. Five years ago playing AAA titles on Linux was a dream, now
+                                    it is basically plug and play for most games. Valve's investment in Proton through
+                                    the Steam Deck has been the single biggest contribution to Linux gaming ever. The
+                                    compatibility layer handles DirectX to Vulkan translation, Windows API calls, and
+                                    even some anti-cheat integration transparently.</p>
+                                <p>Speaking of anti-cheat, this is still the biggest pain point. EasyAntiCheat and
+                                    BattlEye have Linux support but many game developers simply do not enable it.
+                                    Games like Fortnite, Valorant, and PUBG still do not work on Linux because of
+                                    kernel-level anti-cheat requirements. This is frustrating but slowly improving.</p>
+                                <p>For getting the most performance out of your system, here are my tips: use the
+                                    Zen or Liquorix kernel instead of the generic one. Enable GameMode by Feral
+                                    Interactive, it automatically tunes your system when a game launches. Use
+                                    MangoHud for an FPS overlay and performance monitoring. Install Lutris for
+                                    managing non-Steam games, it handles all the Wine configuration for you.
+                                    And if you have an NVIDIA card, always use the proprietary drivers, the
+                                    open-source nouveau drivers are not good enough for gaming.</p>
+                                <p>One last thing: if you are dual-booting, keep a separate partition for your
+                                    games. You can actually mount your Windows NTFS game partition from Linux and
+                                    play some games directly from there without re-downloading. This saved me
+                                    hundreds of gigabytes of disk space.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Which Browser to Choose -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Which Browser Should You Choose?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Tech</span>
+                        </div>
+                        <p>My honest reviews of the browsers I have actually used daily.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p><strong>Brave:</strong> Despite losing points for the ads and crypto nonsense, I
+                                    think Brave captures the best balance between daily usability and security. Though
+                                    the Chrome dependency is still a big negative.</p>
+                                <p><strong>Firefox:</strong> A basic and classic browser. I do not have strong opinions
+                                    on it. For security I would not choose it as-is, LibreWolf is a better alternative
+                                    with better defaults out of the box.</p>
+                                <p><strong>Zen Browser:</strong> Clean, simple, and I like it. Not bad on the security
+                                    front either, though it requires some manual configuration to get the most out of
+                                    it. Great for people who want a minimal browsing experience.</p>
+                                <p><strong>Chrome:</strong> The sync feature is incredible, I used Chrome for a very
+                                    long time. Especially if you switch distros every week like me, just sign into your
+                                    Google account and all your bookmarks and passwords are right where you left them.
+                                    But from a security perspective, Chrome is a complete disaster. Ublock Origin is no
+                                    longer supported, and performance-wise it is terrible. RAM hog too.</p>
+                                <p><strong>Opera GX:</strong> I used it for a while. I liked the interface aesthetics
+                                    but security-wise it is mid at best. Performance was bad, lots of freezing and
+                                    crashes. RAM usage was also excessive. Hard to recommend.</p>
+                                <p>Overall, I think the browser landscape is frustrating. The Chromium monopoly means
+                                    Google effectively controls web standards. Firefox-based browsers are the only real
+                                    alternative engine, but they keep losing market share. If Firefox dies, we are stuck
+                                    with a Google-controlled web. That is why I try to support Firefox-based browsers
+                                    even when Chromium-based ones are technically more convenient. Competition matters.
+                                </p>
+                                <p>My current daily setup: Brave for general browsing with shields up, and a hardened
+                                    Firefox profile for anything sensitive. I keep them separate on purpose. Browser
+                                    fingerprinting is real and using the same browser for everything makes tracking
+                                    trivially easy. Compartmentalization is key.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Free VPN -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Free VPNs: You Are the Product</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Tech</span>
+                        </div>
+                        <p>Why you should stop installing random free VPNs and what you should use instead.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Please stop downloading VPNs with names like "Super Duper Mega Fast VPN" on your
+                                    phones. These free VPN apps are not protecting you, they are harvesting your data.
+                                    Your browsing history, your DNS queries, your traffic metadata, all of it gets
+                                    collected and sold. You are not the customer, you are the product.</p>
+                                <p>If you need a VPN, my top recommendation is Mullvad VPN. They accept anonymous
+                                    payments, do not require an email to sign up, and have been independently audited.
+                                    After Mullvad, ProtonVPN is a solid second choice with a usable free tier that
+                                    actually respects your data.</p>
+                                <p>The fundamental rule is simple: if a VPN service is free and seems too good to be
+                                    true, it probably is. Running VPN infrastructure costs money: servers, bandwidth,
+                                    maintenance, legal compliance. If they are not charging you, someone else is paying,
+                                    and that someone wants your data in return.</p>
+                                <p>I also want to mention: even paid VPNs are not magic privacy tools. Your VPN provider
+                                    can still see your traffic. You are essentially shifting trust from your ISP to the
+                                    VPN provider. So choose one that has been independently audited and has a proven
+                                    track
+                                    record. Mullvad has been raided by police and had nothing to hand over because they
+                                    genuinely do not log. That is the level of trust you should be looking for.</p>
+                                <p>And no, you do not need a VPN for everything. If you are just browsing the web
+                                    normally, HTTPS already encrypts your traffic. A VPN is useful for hiding your
+                                    traffic
+                                    from your ISP, bypassing geo-restrictions, or when using untrusted networks like
+                                    public WiFi. Stop treating it as a magical security shield because it is not.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Why AI Music is Bad -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Why AI Music Generators Still Suck</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">AI</span>
+                        </div>
+                        <p>AI can write code, generate images, but music? Not quite there yet in my opinion.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>I can immediately tell whether a beat was generated by AI because it still produces
+                                    this weird subtle tonal quality. No matter what genre you make or how detailed your
+                                    prompt is, a careful listener will absolutely notice it is AI-generated.</p>
+                                <p>The technology is getting better fast, but right now AI music lacks soul. It can
+                                    mimic patterns and structures, but it cannot capture the feel that makes a track
+                                    truly slap. It is too perfect in the wrong way, too sterile. Real music has
+                                    imperfections that give it character.</p>
+                                <p>Maybe in a few years this will change, but today? If you are producing music and
+                                    relying entirely on AI, people who actually listen carefully will notice. Use it as
+                                    a starting point or for inspiration maybe, but do not pass it off as your own craft.
+                                </p>
+                                <p>Where I think AI music tools actually shine right now is in background music and
+                                    sound design. Ambient tracks, lo-fi beats, game soundtracks, things where the
+                                    listener
+                                    is not paying close attention to every note. For that, AI is genuinely useful and
+                                    saves
+                                    a lot of time. But for a song that is meant to be listened to actively and enjoyed,
+                                    we are still far from replacing human musicians.</p>
+                                <p>The ethical side is also messy. AI models are trained on copyrighted music without
+                                    the artists' consent. The whole discourse around AI art applies here too. I think we
+                                    need better regulations and transparency about what data these models are trained on
+                                    before the technology matures further.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: 1 Month with BSD -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>I Used BSD for One Month, Here is What Happened</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">BSD</span>
+                        </div>
+                        <p>My honest experience after spending a full month with GhostBSD as my daily driver.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>I installed GhostBSD. On my NVIDIA machine it would not even boot. On my AMD machine
+                                    I had no driver issues whatsoever, so I cannot speak for the NVIDIA side of things.
+                                </p>
+                                <p>I had some audio issues and had to tweak some system files and configs to get sound
+                                    working properly. For new users, this kind of thing can be a real dealbreaker. And
+                                    unlike Linux, there are far fewer guide videos and articles out there to help you
+                                    troubleshoot.</p>
+                                <p>But overall? It was very fast and clean. I genuinely liked it.</p>
+                                <p>The big problem: I could not install any of the apps I regularly use. Steam, Discord,
+                                    VSCode, Brave, GitHub Desktop... none of them. It is still not as compatible as
+                                    Linux in terms of application support, and I think that is BSD's biggest weakness
+                                    right now. There are apparently some compatibility tools that can run Linux apps on
+                                    BSD but I was too lazy to bother with them.</p>
+                                <p>That said, it was fine for basic usage. I browsed the internet with Firefox, watched
+                                    YouTube videos, no issues. The stability was incredible, when I used it GhostBSD was
+                                    based on FreeBSD stable (I think it has moved to a rolling model now).</p>
+                                <p>I used it for a full month without a single crash or issue. It was a nice experience.
+                                    FreeBSD is evolving really fast and I hope it gets better app support and becomes
+                                    more user-friendly in the future.</p>
+                                <p>One thing I really appreciated was the documentation. FreeBSD and its derivatives
+                                    have some of the best documentation in the entire open-source world. The FreeBSD
+                                    Handbook is legendary for a reason. When I ran into issues, the official docs almost
+                                    always had the answer. Linux distributions could learn a lot from this approach.</p>
+                                <p>Would I daily drive BSD? Honestly, not yet. Not because the OS is bad, it is great,
+                                    but because my workflow depends on too many Linux-specific applications. If I were
+                                    running a server or a network appliance though, FreeBSD would absolutely be on my
+                                    shortlist. The jails system alone is worth considering as an alternative to Docker
+                                    containers.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Veracrypt -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>What is Veracrypt?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Security</span>
+                        </div>
+                        <p>Veracrypt is an open-source disk encryption tool with plausible deniability features.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Veracrypt is the successor to TrueCrypt and honestly one of the best encryption tools
+                                    available. It supports AES, Serpent, and Twofish encryption algorithms, and you can
+                                    even cascade them for paranoid-level security. It works on Windows, macOS, and
+                                    Linux.</p>
+                                <p>The standout feature is hidden volumes. You can create a hidden encrypted volume
+                                    inside another encrypted volume. Even if someone forces you to reveal your password,
+                                    you give them the outer volume password. They see decoy files and have no way to
+                                    prove the hidden volume even exists. That is plausible deniability at its finest.
+                                </p>
+                                <p>Full disk encryption, encrypted containers, and portable mode are all supported. If
+                                    you are carrying sensitive data on a USB drive, there is really no excuse not to use
+                                    it. Setup is straightforward and the documentation is excellent.</p>
+                                <p>I personally use Veracrypt for my external drives. The peace of mind knowing that
+                                    if I lose a USB stick, nobody can access the data on it, is worth the few extra
+                                    seconds it takes to mount the volume. You can also create encrypted file containers
+                                    that look like normal files, which is great for storing sensitive documents
+                                    alongside
+                                    regular files without drawing attention.</p>
+                                <p>The performance impact is minimal on modern hardware. AES encryption is hardware
+                                    accelerated on most CPUs released in the last decade, so you will barely notice any
+                                    slowdown. If you are not encrypting your portable storage in 2026, you are taking an
+                                    unnecessary risk.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Don't Sell Your History -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Do Not Sell Your History with Your Computer</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Security</span>
+                        </div>
+                        <p>When you sell your old computer, you might be giving away much more than hardware.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>People sell or give away their old laptops and desktops all the time without properly
+                                    wiping the data. A simple format from Windows does not actually erase your files, it
+                                    just marks the space as available. Anyone with basic data recovery tools can pull
+                                    your photos, documents, passwords, and browser history from that drive.</p>
+                                <p>Before selling any device, you should use a proper disk wiping tool. DBAN (Darik's
+                                    Boot and Nuke) is free and does the job. For SSDs, use the manufacturer's secure
+                                    erase tool since DBAN is designed for HDDs. Or better yet, use full disk encryption
+                                    before you even start using the drive. That way even if someone recovers the data,
+                                    it is encrypted garbage without the key.</p>
+                                <p>This might sound paranoid but identity theft from sold devices is more common than
+                                    people think. Take the extra 30 minutes to properly wipe your data. It could save
+                                    you months of headaches dealing with compromised accounts and stolen identity.</p>
+                                <p>Do not forget about smartphones either. A factory reset on most phones does not
+                                    fully erase data. Use the built-in encryption before factory resetting, this ensures
+                                    that even if someone recovers the encrypted data, it is useless without the key.
+                                    And remove your SIM card and any SD cards before handing the device over.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Onion Service Hardening -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Onion Service Hardening: DDoS and Leak Prevention</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Security</span>
+                        </div>
+                        <p>How to properly secure an onion service against DDoS attacks and prevent real IP leaks.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Running an onion service is one thing, keeping it secure and anonymous is another.
+                                    The most common attack vectors are DDoS floods and IP leaks through misconfigured
+                                    services. Both can completely compromise your operation.</p>
+                                <p>For DDoS protection, rate limiting at the Tor configuration level is essential. Use
+                                    HiddenServiceMaxStreams and configure connection limits carefully. Vanguards add-on
+                                    provides extra guard relay protection. On the server side, configure iptables to
+                                    only accept connections from localhost on the service port, this ensures traffic can
+                                    only come through Tor.</p>
+                                <p>IP leaks are the silent killer. Always bind your service exclusively to 127.0.0.1.
+                                    Never use a server that also has clearnet services. DNS leaks, error pages revealing
+                                    server info, and application-level leaks in headers are surprisingly common
+                                    mistakes. Regularly audit your service with proper OPSEC checklists.</p>
+                                <p>One often overlooked aspect is clock skew. Your server's system time can be used as
+                                    a fingerprint. If an adversary can correlate your server's clock drift with known
+                                    servers, they can narrow down your identity. Use NTP carefully and consider
+                                    randomizing timestamps in your application layer.</p>
+                                <p>Content-based attacks are also a real threat. If someone uploads a file to your
+                                    service that phones home (like an image with tracking pixels or a document that
+                                    makes external requests), your real IP could be leaked. Sanitize all user uploads
+                                    and strip metadata aggressively.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Firejail and Bubblewrap -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Isolation: Firejail vs Bubblewrap</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>Application sandboxing on Linux using Firejail and Bubblewrap, what they do and when to use
+                            each.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Application isolation is one of the most underrated security practices on Linux.
+                                    Firejail and Bubblewrap (bwrap) are two tools that sandbox applications, limiting
+                                    what they can see and do on your system.</p>
+                                <p>Firejail is the easier option. It comes with hundreds of pre-built profiles for
+                                    popular applications. Just prefix any command with <code>firejail</code> and the app
+                                    runs in a restricted environment. It uses Linux namespaces, seccomp filters, and
+                                    capability dropping. Great for quickly sandboxing browsers, media players, and other
+                                    network-facing applications.</p>
+                                <p>Bubblewrap is lower-level and more flexible. It is what Flatpak uses under the hood.
+                                    You have to manually specify what the sandboxed process can access: which
+                                    directories, which devices, which environment variables. It is more work but gives
+                                    you precise control. I even built a tool called Plaztek around bwrap for rule-based
+                                    isolation.</p>
+                                <p>When to use which? Firejail for quick and easy sandboxing with sensible defaults.
+                                    Bubblewrap when you need fine-grained control or are building something custom. Both
+                                    are infinitely better than running everything with full system access.</p>
+                                <p>A practical tip: if you are on a systemd-based distro, you can also use systemd's
+                                    built-in sandboxing features like PrivateTmp, NoNewPrivileges, and
+                                    ProtectSystem=strict for your services. It is not as flexible as Firejail or bwrap
+                                    for desktop apps, but for daemons and background services it is excellent and
+                                    does not require any additional packages.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Quantum and Tor -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Can Quantum Computers Break Tor Encryption?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Tech</span>
+                        </div>
+                        <p>Everyone keeps asking about quantum threats. Let me break it down simply.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Quantum computing is advancing rapidly and yes, in theory, a sufficiently powerful
+                                    quantum computer could break the asymmetric cryptography that Tor and most of the
+                                    internet relies on. Shor's algorithm can factor large numbers exponentially faster
+                                    than classical computers, which would break RSA and ECC.</p>
+                                <p>But here is the thing: we are not there yet. Current quantum computers have nowhere
+                                    near enough stable qubits to threaten modern encryption. We are probably 10-20 years
+                                    away from that capability, if it even happens on that timeline.</p>
+                                <p>The Tor Project and the wider cryptography community are already working on
+                                    post-quantum cryptography. NIST has finalized several post-quantum algorithms
+                                    (CRYSTALS-Kyber, CRYSTALS-Dilithium). Tor will eventually migrate to these. The real
+                                    question is whether the migration happens fast enough.</p>
+                                <p>In the meantime, the "harvest now, decrypt later" attack is the real concern. State
+                                    actors could be recording encrypted traffic today with the intention of decrypting
+                                    it once quantum computers become viable. That is a legitimate threat for information
+                                    that needs to stay secret for decades.</p>
+                                <p>What practical steps can you take now? Start transitioning to post-quantum
+                                    algorithms where possible. Signal messenger has already implemented post-quantum
+                                    key exchange. Libraries like liboqs make it possible to experiment with PQ
+                                    cryptography today. For long-term secrets, double-encrypting with both classical
+                                    and post-quantum algorithms is a reasonable hedge. The transition will be messy,
+                                    but starting early is better than being caught off guard.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: P2P Networks -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>The Future of P2P Networks</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Tech</span>
+                        </div>
+                        <p>P2P is not dead, it is evolving. Here are my thoughts on where it is heading.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>P2P networks have been around since the Napster days but they are far from obsolete.
+                                    In fact, modern P2P protocols are more sophisticated than ever. IPFS, BitTorrent v2,
+                                    and various DHT-based systems are pushing decentralization forward.</p>
+                                <p>The core appeal of P2P is resilience and censorship resistance. No single point of
+                                    failure, no central authority that can shut things down. This matters more than ever
+                                    as internet censorship increases globally.</p>
+                                <p>The challenges remain though: NAT traversal is still painful, latency is inherently
+                                    higher than centralized systems, and the user experience often suffers. But projects
+                                    like I2P, Yggdrasil, and even IPFS are making significant progress.</p>
+                                <p>I believe the future of the internet will be a hybrid model: centralized services for
+                                    convenience and P2P infrastructure for resilience and freedom. The question is
+                                    whether enough people care about decentralization to build and maintain these
+                                    networks.</p>
+                                <p>Blockchain technology, despite all the hype and scams, has brought one genuinely
+                                    useful innovation to P2P: decentralized consensus without a central authority.
+                                    Projects like IPFS combined with Filecoin create economic incentives for distributed
+                                    storage. Whether this model works long-term is debatable, but the experiment is
+                                    worth watching.</p>
+                                <p>What excites me most is the potential for P2P AI inference. Instead of relying on
+                                    centralized cloud providers for AI, imagine a network where nodes contribute their
+                                    GPU power for distributed inference. Projects like Petals are already experimenting
+                                    with this. It is early days, but the implications for democratizing AI access are
+                                    huge.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Data Recovery on Linux -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Data Recovery on Linux Systems</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>When disaster strikes and you accidentally delete something important, here is how to get it
+                            back on Linux.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Data loss happens to everyone eventually. Whether it is an accidental
+                                    <code>rm -rf</code>, a corrupted filesystem, or a failing drive, knowing how to
+                                    recover data on Linux is an essential skill.
+                                </p>
+                                <p>The first rule: stop writing to the affected drive immediately. Every write operation
+                                    reduces the chance of recovery. Boot from a live USB and work from there. Tools like
+                                    <strong>TestDisk</strong> and <strong>PhotoRec</strong> are incredibly powerful and
+                                    completely free. TestDisk can recover lost partitions and make non-booting disks
+                                    bootable again. PhotoRec ignores the filesystem and carves files directly from the
+                                    disk surface.
+                                </p>
+                                <p>For ext4 filesystems, <code>extundelete</code> can recover recently deleted files if
+                                    the journal still has entries. <code>ddrescue</code> is your best friend for failing
+                                    hardware since it creates a recoverable disk image while handling read errors
+                                    gracefully. Always recover to a different drive, never to the same one.</p>
+                                <p>Prevention is better than recovery though. Set up automated backups with rsync,
+                                    timeshift, or restic. A backup strategy that you never test is not a backup
+                                    strategy.</p>
+                                <p>I follow the 3-2-1 backup rule: three copies of your data, on two different types
+                                    of media, with one copy offsite. It sounds excessive until you actually need it.
+                                    Cloud backup services like Backblaze B2 are dirt cheap and restic supports them
+                                    natively with client-side encryption. Your cloud provider never sees your actual
+                                    data.</p>
+                                <p>One more thing: if you are dealing with a failing SSD, the recovery window is much
+                                    shorter than with HDDs. SSDs can fail suddenly and completely due to controller
+                                    failures. With an HDD, you usually get warnings like clicking sounds or gradually
+                                    increasing bad sectors. Monitor your drive health with smartctl and replace drives
+                                    proactively when S.M.A.R.T. attributes start degrading.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Fine Tuning -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Fine-Tuning: Training Your Own AI Model</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">AI/ML</span>
+                        </div>
+                        <p>How fine-tuning works and my experience customizing language models for specific tasks.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Fine-tuning is taking a pre-trained model and training it further on your own
+                                    specific dataset. Instead of training from scratch, which requires massive compute
+                                    and data, you leverage what the model already knows and adapt it to your domain.</p>
+                                <p>The process is straightforward conceptually: prepare your dataset in the right format
+                                    (usually instruction-response pairs), choose a base model, configure your training
+                                    hyperparameters (learning rate, epochs, batch size), and let it train. LoRA and
+                                    QLoRA have made this accessible on consumer hardware by only training a small
+                                    fraction of the model's weights.</p>
+                                <p>The hardest part is actually data quality. Garbage in, garbage out. Your fine-tuned
+                                    model will only be as good as your training data. I spent more time cleaning and
+                                    formatting my datasets than actually training the models.</p>
+                                <p>Tools I use: Hugging Face Transformers, Unsloth for fast training, and Axolotl for
+                                    easy configuration. Even with a single GPU you can fine-tune 7B and 13B parameter
+                                    models with LoRA in a reasonable timeframe. The results can be surprisingly good for
+                                    domain-specific tasks.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Ollama -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Running AI Models Locally with Ollama</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">AI/ML</span>
+                        </div>
+                        <p>How to run large language models completely offline on your own hardware.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Ollama makes running LLMs locally incredibly simple. One command to install, one
+                                    command to pull a model, one command to start chatting. No cloud, no API keys, no
+                                    subscription fees. Everything runs on your machine.</p>
+                                <p>You can run models like Llama 3, Mistral, Gemma, and Phi locally. The quality of
+                                    smaller models (7B-13B) has improved dramatically. For many tasks they are genuinely
+                                    good enough. Coding assistance, text summarization, brainstorming, and even basic
+                                    reasoning work well.</p>
+                                <p>The hardware requirements depend on the model size. 7B models run comfortably on 8GB
+                                    RAM. 13B needs about 16GB. 70B models need serious hardware. GPU offloading makes
+                                    everything faster if you have a compatible card.</p>
+                                <p>The killer feature is the API compatibility. Ollama exposes an OpenAI-compatible API,
+                                    so you can point any tool or library that works with OpenAI to your local Ollama
+                                    instance. Complete data privacy with zero cloud dependency. For development and
+                                    experimentation this is a game changer.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: FreeBSD -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>FreeBSD: The Silent Powerhouse of Operating Systems</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">BSD</span>
+                        </div>
+                        <p>FreeBSD is making big strides in usability and performance. Here is a deep dive into what
+                            makes it special.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>FreeBSD is evolving at an impressive pace. The performance improvements, especially
+                                    in networking and storage, are significant. ZFS is a first-class citizen on FreeBSD
+                                    and the integration is seamless. Unlike Linux where ZFS is a third-party module due
+                                    to licensing conflicts, FreeBSD ships ZFS as part of the base system. This means
+                                    better testing, better integration, and fewer headaches.</p>
+                                <p>Let me talk about ZFS for a moment because it is genuinely one of FreeBSD's killer
+                                    features. Copy-on-write, snapshots, built-in RAID, checksumming, compression,
+                                    deduplication... it is like having an enterprise-grade storage solution built right
+                                    into your OS. I have seen ZFS catch and correct silent data corruption that would
+                                    have gone completely unnoticed on ext4 or XFS. For anyone running a NAS or a server
+                                    with important data, ZFS on FreeBSD is the gold standard.</p>
+                                <p>The pkg package manager is fast and reliable. The ports collection gives you
+                                    incredible flexibility for custom compilation. Where FreeBSD really shines is in
+                                    stability, security features like Capsicum and jails, and its networking stack. Many
+                                    high-traffic CDNs and hosting providers run FreeBSD for good reason. Netflix, for
+                                    example, serves a massive portion of their traffic from FreeBSD-based servers.</p>
+                                <p>FreeBSD jails deserve their own discussion. They are essentially lightweight
+                                    containers that existed long before Docker was even a concept. A jail creates an
+                                    isolated environment with its own filesystem, network stack, users, and processes.
+                                    Unlike Linux containers which share the host kernel's namespace mechanism, jails
+                                    are deeply integrated into the FreeBSD kernel and are incredibly secure. You can
+                                    run untrusted code in a jail without worrying about container escape vulnerabilities
+                                    that plague Docker.</p>
+                                <p>Capsicum is another security gem. It is a capability-based security framework that
+                                    lets you sandbox individual processes at a very granular level. Instead of running
+                                    something as root and hoping for the best, you can restrict exactly what system
+                                    calls and file descriptors a process can use. Many base system utilities in FreeBSD
+                                    already use Capsicum to limit their own privileges.</p>
+                                <p>The networking stack in FreeBSD is legendary. The TCP/IP implementation has been
+                                    refined over three decades and is arguably the best in any operating system.
+                                    Features
+                                    like VIMAGE (virtualized network stacks), pf firewall (ported from OpenBSD), and
+                                    CARP (Common Address Redundancy Protocol) make FreeBSD an excellent choice for
+                                    network appliances and firewalls. pfSense and OPNsense, two of the most popular
+                                    open-source firewalls, are both based on FreeBSD.</p>
+                                <p>bhyve is FreeBSD's hypervisor, and it has matured significantly. It supports
+                                    running Linux, Windows, and other BSDs as guests. Combined with jails for
+                                    lightweight
+                                    isolation and ZFS for storage management, FreeBSD gives you a complete
+                                    virtualization
+                                    platform without any third-party tools.</p>
+                                <p>DTrace, originally from Solaris, is fully integrated into FreeBSD. It is a dynamic
+                                    tracing framework that lets you observe and debug the kernel and userland in
+                                    real-time
+                                    without stopping the system. You can trace system calls, function entries, I/O
+                                    operations, and virtually anything else. For production debugging and performance
+                                    analysis, DTrace is unmatched.</p>
+                                <p>The main drawback remains software compatibility. Many popular Linux applications do
+                                    not have native FreeBSD ports. The Linux compatibility layer helps but it is not
+                                    seamless. If you can work within its ecosystem though, FreeBSD rewards you with a
+                                    rock-solid, well-documented system. The FreeBSD Handbook is genuinely one of the
+                                    best pieces of technical documentation ever written.</p>
+                                <p>I honestly believe that if FreeBSD had received the same level of desktop investment
+                                    that Linux got through Ubuntu and Android, the computing landscape would look very
+                                    different today. The engineering quality is exceptional, it just never had the
+                                    marketing push and hardware vendor support that Linux enjoys.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Tor Exit Node Attacks -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Tor Exit Node Attacks</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Security</span>
+                        </div>
+                        <p>Understanding the risks of malicious Tor exit nodes and how to protect yourself.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Tor encrypts your traffic between your machine and the exit node, but the exit node
+                                    decrypts it before sending it to the destination. This means a malicious exit node
+                                    can see and modify unencrypted traffic. If you visit an HTTP site through Tor, the
+                                    exit node operator sees everything.</p>
+                                <p>Exit node attacks include SSL stripping, injecting malicious code into HTTP pages,
+                                    credential harvesting, and traffic analysis. Multiple research papers have
+                                    documented state-level actors setting up malicious exit nodes at scale.</p>
+                                <p>Protection is simple: always use HTTPS. The Tor Browser enforces HTTPS-Only mode by
+                                    default. Never transmit sensitive data over unencrypted connections. Be cautious of
+                                    certificate warnings. Use end-to-end encrypted communications when possible. The
+                                    exit node is the weakest link in the Tor circuit, treat it accordingly.</p>
+                                <p>There have been cases where exit node operators modified Bitcoin addresses in
+                                    real-time,
+                                    replacing the intended recipient's address with their own. This highlights why
+                                    end-to-end integrity verification matters. Always verify critical data like wallet
+                                    addresses, download checksums, and PGP signatures independently of the transport
+                                    layer.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: IPtables -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>IPtables Basics and Linux Hardening</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Linux</span>
+                        </div>
+                        <p>Getting started with iptables and fundamental Linux hardening practices.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>IPtables is the traditional Linux firewall tool that works at the kernel level. It
+                                    uses chains (INPUT, OUTPUT, FORWARD) and rules to filter packets. The basic
+                                    philosophy: default deny everything, then explicitly allow only what you need.
+                                    Understanding this philosophy is the foundation of all network security.</p>
+                                <p>Let me walk through a practical iptables setup. Start with flushing existing rules
+                                    and setting default policies:
+                                    <code>iptables -F && iptables -P INPUT DROP && iptables -P FORWARD DROP && iptables -P OUTPUT ACCEPT</code>.
+                                    Then allow loopback: <code>iptables -A INPUT -i lo -j ACCEPT</code>.
+                                    Allow established connections:
+                                    <code>iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</code>.
+                                    Then open only what you need:
+                                    <code>iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code>
+                                    for SSH. This gives you a minimal but functional firewall.
+                                </p>
+                                <p>For rate limiting SSH brute force attacks, this rule is gold:
+                                    <code>iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set --name SSH</code>
+                                    followed by
+                                    <code>iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --update --seconds 60 --hitcount 4 --name SSH -j DROP</code>.
+                                    This allows only 3 new SSH connections per minute from the same IP. Simple but
+                                    incredibly effective against automated attacks.
+                                </p>
+                                <p>Logging is crucial for monitoring. Add a logging rule before your final DROP:
+                                    <code>iptables -A INPUT -j LOG --log-prefix "IPT-DROP: " --log-level 4</code>.
+                                    Then you can monitor dropped packets with
+                                    <code>tail -f /var/log/kern.log | grep IPT-DROP</code>.
+                                    This tells you exactly what is being blocked and helps you identify attack patterns.
+                                </p>
+                                <p>Start with dropping all incoming traffic by default, then open only the ports your
+                                    services need. Allow established connections, stateful filtering is your friend. Log
+                                    dropped packets for monitoring. For a server, you typically only need SSH (22), HTTP
+                                    (80), and HTTPS (443). Everything else should be blocked.</p>
+                                <p>For geo-blocking, you can use ipset with iptables. Download country IP ranges,
+                                    create an ipset, and block entire countries you do not expect traffic from. This
+                                    dramatically reduces your attack surface. Most automated attacks come from a small
+                                    number of countries, blocking those at the firewall level means your services never
+                                    even see the malicious traffic.</p>
+                                <p>Beyond iptables, basic Linux hardening includes: disabling root SSH login, using
+                                    key-based authentication only, keeping packages updated, removing unnecessary
+                                    services, configuring automatic security updates, setting proper file permissions,
+                                    and using fail2ban for brute-force protection. These simple steps stop the vast
+                                    majority of automated attacks.</p>
+                                <p>Kernel hardening is also important and often overlooked. Sysctl parameters like
+                                    <code>net.ipv4.tcp_syncookies = 1</code> protect against SYN floods.
+                                    <code>net.ipv4.conf.all.rp_filter = 1</code> enables reverse path filtering.
+                                    <code>kernel.randomize_va_space = 2</code> enables full ASLR.
+                                    <code>fs.protected_hardlinks = 1</code> and <code>fs.protected_symlinks = 1</code>
+                                    prevent symlink attacks. These are easy to set and provide significant protection.
+                                </p>
+                                <p>If you are on a newer system, consider using nftables instead of iptables. It is
+                                    the successor and has a cleaner syntax with better performance. The transition is
+                                    not difficult if you understand iptables concepts, and most modern distributions
+                                    are already using nftables as the backend even when you use iptables commands
+                                    through the compatibility layer.</p>
+                                <p>For auditing your setup, tools like Lynis are invaluable. Run
+                                    <code>lynis audit system</code> and it will scan your entire system for security
+                                    issues and give you actionable recommendations. It checks everything from kernel
+                                    parameters to file permissions to SSH configuration. I run it quarterly on all
+                                    my servers.
+                                </p>
+                                <p>One last tip: always test your firewall rules before applying them permanently,
+                                    especially on remote servers. Lock yourself out of your own server by accident
+                                    and you will have a very bad day. Use <code>at</code> command to schedule a rule
+                                    flush as a safety net while testing: if you get locked out, the rules reset
+                                    automatically after a few minutes.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Clawdbot -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Is Clawdbot Really Necessary?</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">AI</span>
+                        </div>
+                        <p>Handing over your email and system to an AI entirely... is that really a good idea?</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>I honestly do not know if giving an AI chatbot full access to your emails and system
+                                    is the smartest move. These bots are supposed to help you manage tasks, filter
+                                    emails, and automate workflows. But the tradeoff is that you are feeding your entire
+                                    digital life into a system you do not fully control or understand.</p>
+                                <p>What happens when it misinterprets something? What if it auto-replies to an important
+                                    email with garbage? What if the company behind it gets breached? Your entire
+                                    communication history is sitting on their servers.</p>
+                                <p>I am not saying AI assistants are useless. They have their place. But there is a
+                                    difference between using AI as a tool you control and surrendering your entire
+                                    workflow to it. Personally, I prefer to keep humans in the loop for anything
+                                    important. Call me old school but I would rather spend five minutes reading my own
+                                    emails than let an AI decide what matters.</p>
+                                <p>The security implications are also worth thinking about. These bots need API access
+                                    to your email, calendar, contacts, and sometimes even your file system. That is a
+                                    massive attack surface. If the bot's API keys get compromised, the attacker has
+                                    access to everything the bot has access to. And we have seen plenty of API key
+                                    leaks in recent years.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <!-- Blog: Tor Correlation Attacks -->
+                    <div class="blog-card reveal">
+                        <div class="blog-card-header">
+                            <h3>Tor Correlation Attacks Explained</h3>
+                            <span class="tag"
+                                style="background:rgba(59,130,246,0.1);color:#60a5fa;border-color:rgba(59,130,246,0.2);">Security</span>
+                        </div>
+                        <p>How traffic analysis and timing attacks can de-anonymize Tor users.</p>
+                        <div class="blog-excerpt">
+                            <div class="blog-content">
+                                <p>Correlation attacks are one of the most effective techniques against Tor. The idea is
+                                    simple: if an adversary can observe traffic entering the Tor network and traffic
+                                    exiting it, they can correlate the timing and volume patterns to link the two. No
+                                    cryptography needs to be broken.</p>
+                                <p>This requires a global passive adversary, one who can monitor many network points
+                                    simultaneously. This is within the capability of nation-state intelligence agencies.
+                                    Research has shown that with enough guard and exit relay monitoring,
+                                    de-anonymization rates can be surprisingly high.</p>
+                                <p>Mitigations include traffic padding, which adds dummy traffic to obscure patterns.
+                                    Vanguards protect guard relay selection. Using bridges hides the fact that you are
+                                    using Tor at all. But none of these are perfect. The fundamental weakness of
+                                    low-latency anonymity networks is that they must preserve timing for usability,
+                                    which inherently leaks information.</p>
+                                <p>Academic research like the NetFlow analysis paper from 2024 showed that with access
+                                    to ISP-level flow data, Tor users could be de-anonymized with concerning accuracy.
+                                    The Tor Project responded with improvements, but the fundamental tension between
+                                    usability and anonymity remains. If you need high-assurance anonymity, Tor alone
+                                    is not enough. You need a comprehensive OPSEC strategy that accounts for behavioral
+                                    patterns, timing habits, and metadata beyond just network traffic.</p>
+                            </div>
+                        </div>
+                        <button class="blog-read-more"><span>Read More</span> <i
+                                class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="footer-brand">root0emir</span>
+            <p>2026 root0emir | All rights reserved</p>
+        </div>
+    </footer>
+    <script src="static/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distro's | root0emir</title>
+    <meta name="description" content="Linux distributions developed by root0emir.">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="Assets/root0icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <canvas id="bg-particles" class="bg-canvas"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon"><img src="Assets/root0icon.png" alt="Killrozero"></div>Killrozero<span
+                    class="accent"></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="distros.html" class="active">Distro's</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="articles.html">Articles</a>
+                <a href="ainews.html">AI News</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle"
+                aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="page-content" style="padding-top:calc(var(--nav-height) + 40px);">
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>My <span class="accent">Distro's</span></h2>
+                    <p>Linux distributions I have built and maintained.</p>
+                </div>
+
+                <div class="distro-grid">
+
+                    <!-- Zenclora OS (FIRST) -->
+                    <div class="distro-card featured reveal">
+                        <div class="distro-img">
+                            <img src="Assets/zenclora-de.png" alt="Zenclora OS Desktop">
+                            <div class="distro-logo"><img src="Assets/zenclora.png" alt="Zenclora Logo"></div>
+                        </div>
+                        <div class="distro-info">
+                            <div class="distro-status active"><span class="dot"></span> ACTIVE</div>
+                            <h3>Zenclora OS</h3>
+                            <div class="distro-meta">
+                                <span><i class="fas fa-calendar"></i> 2026-1-16</span>
+                                <span><i class="fas fa-layer-group"></i> Debian-based</span>
+                                <span><i class="fas fa-desktop"></i> GNOME</span>
+                            </div>
+                            <div class="distro-tags">
+                                <span class="tag desktop">Desktop</span>
+                                <span class="tag">Gaming</span>
+                                <span class="tag">Multimedia</span>
+                            </div>
+                            <p class="distro-desc">Zenclora is a Debian-based desktop Linux distribution optimized for
+                                stability and daily use. Zenclora offers simplified package and system management
+                                commands to make Linux usage easier; it avoids unnecessary complexity while providing
+                                control to the user. Includes <strong>ZPM</strong> (Zen Package Manager) for streamlined
+                                package and system management.</p>
+                            <div class="distro-features">
+                                <div class="feature-item"><i class="fas fa-box"></i><span>ZPM Package Manager</span>
+                                </div>
+                                <div class="feature-item"><i class="fas fa-feather"></i><span>Bloat-Free</span></div>
+                                <div class="feature-item"><i class="fas fa-rocket"></i><span>Quick Setup</span></div>
+                                <div class="feature-item"><i class="fas fa-shield"></i><span>Debian Stable</span></div>
+                            </div>
+                            <div class="distro-links">
+                                <a href="https://zenclora.org" target="_blank" class="distro-link primary"><i
+                                        class="fas fa-globe"></i> Website</a>
+                                <a href="https://github.com/Zenclora" target="_blank" class="distro-link"><i
+                                        class="fab fa-github"></i> GitHub</a>
+                                <a href="https://sourceforge.net/projects/zenclora/" target="_blank"
+                                    class="distro-link"><i class="fas fa-download"></i> SourceForge</a>
+                                <a href="https://distrowatch.com/table.php?distribution=zenclora" target="_blank"
+                                    class="distro-link"><i class="fas fa-eye"></i> DistroWatch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LengToolkit (SECOND) -->
+                    <div class="distro-card reveal">
+                        <div class="distro-img">
+                            <img src="Assets/leng-de.png" alt="LengToolkit Desktop">
+                            <div class="distro-logo"><img src="Assets/leng.png" alt="LengToolkit Logo"></div>
+                        </div>
+                        <div class="distro-info">
+                            <div class="distro-status active"><span class="dot"></span> ACTIVE</div>
+                            <h3>Linux Engineer Toolkit Live</h3>
+                            <div class="distro-meta">
+                                <span><i class="fas fa-calendar"></i> 2026-1-22</span>
+                                <span><i class="fas fa-layer-group"></i> Debian-based</span>
+                                <span><i class="fas fa-desktop"></i> MATE</span>
+                            </div>
+                            <div class="distro-tags">
+                                <span class="tag rescue">System Rescue</span>
+                                <span class="tag">Forensics</span>
+                                <span class="tag">Live Only</span>
+                            </div>
+                            <p class="distro-desc">Linux Engineer Toolkit (LengToolkit) Live is a specialized,
+                                recovery-oriented Linux distribution designed for system engineers and IT professionals.
+                                Operating exclusively in Live mode, it provides a robust environment to rescue failing
+                                systems, recover lost data, and manage disk infrastructures without installation.</p>
+                            <div class="distro-links">
+                                <a href="https://sourceforge.net/projects/lengtoolkitlive/" target="_blank"
+                                    class="distro-link primary"><i class="fas fa-download"></i> SourceForge</a>
+                                <a href="https://distrowatch.com/table.php?distribution=lengtoolkitlive" target="_blank"
+                                    class="distro-link"><i class="fas fa-eye"></i> DistroWatch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hardened Slarpx (THIRD) -->
+                    <div class="distro-card reveal">
+                        <div class="distro-img">
+                            <img src="Assets/slarpx-de.png" alt="Hardened Slarpx Desktop">
+                            <div class="distro-logo"><img src="Assets/slarpx.png" alt="Slarpx Logo"></div>
+                        </div>
+                        <div class="distro-info">
+                            <div class="distro-status active"><span class="dot"></span> ACTIVE</div>
+                            <h3>Hardened Slarpx</h3>
+                            <div class="distro-meta">
+                                <span><i class="fas fa-calendar"></i> 2026-1-24</span>
+                                <span><i class="fas fa-layer-group"></i> Debian-based</span>
+                                <span><i class="fas fa-desktop"></i> CLI Only</span>
+                            </div>
+                            <div class="distro-tags">
+                                <span class="tag security">Security</span>
+                                <span class="tag">Hardened</span>
+                                <span class="tag">CLI Only</span>
+                            </div>
+                            <p class="distro-desc">Hardened Slarpx is a Debian-based Linux distribution built with a
+                                strict security-first approach. It uses a multi-layered defense model with aggressive
+                                mitigations and extensive kernel-level hardening. Includes custom security modules:
+                                <strong>Poison</strong> and <strong>Xennytsu</strong>. Focuses on active intervention,
+                                sabotage, and destruction of attack paths.
+                            </p>
+                            <div class="distro-features">
+                                <div class="feature-item"><i class="fas fa-skull-crossbones"></i><span>Poison
+                                        Module</span></div>
+                                <div class="feature-item"><i class="fas fa-bolt"></i><span>Xennytsu Engine</span></div>
+                                <div class="feature-item"><i class="fas fa-shield"></i><span>Kernel Hardening</span>
+                                </div>
+                                <div class="feature-item"><i class="fas fa-fire-flame-curved"></i><span>Restrictive
+                                        Firewall</span></div>
+                            </div>
+                            <div class="distro-links">
+                                <a href="https://slarpx.github.io" target="_blank" class="distro-link primary"><i
+                                        class="fas fa-globe"></i> Website</a>
+                                <a href="https://github.com/Slarpx" target="_blank" class="distro-link"><i
+                                        class="fab fa-github"></i> GitHub</a>
+                                <a href="https://sourceforge.net/projects/slarpx/" target="_blank"
+                                    class="distro-link"><i class="fas fa-download"></i> SourceForge</a>
+                                <a href="https://distrowatch.com/table.php?distribution=slarpx" target="_blank"
+                                    class="distro-link"><i class="fas fa-eye"></i> DistroWatch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fishy Linux -->
+                    <div class="distro-card reveal">
+                        <div class="distro-img">
+                            <img src="Assets/fishy-de.png" alt="Fishy Linux Desktop">
+                            <div class="distro-logo"><img src="Assets/fishy.png" alt="Fishy Logo"></div>
+                        </div>
+                        <div class="distro-info">
+                            <div class="distro-status active"><span class="dot"></span> ACTIVE</div>
+                            <h3>Fishy Linux</h3>
+                            <div class="distro-meta">
+                                <span><i class="fas fa-calendar"></i> 2025-11-11</span>
+                                <span><i class="fas fa-layer-group"></i> Debian-based</span>
+                                <span><i class="fas fa-desktop"></i> LXQT</span>
+                            </div>
+                            <div class="distro-tags">
+                                <span class="tag lightweight">Old Computers</span>
+                                <span class="tag">Lightweight</span>
+                            </div>
+                            <p class="distro-desc">Fishy Linux is a fast and minimal Debian-based Linux distribution. It
+                                uses the lightweight and efficient LXQT desktop environment. Fishy Linux comes with
+                                broad hardware support and can be installed to disk using Debian Installer.</p>
+                            <div class="distro-links">
+                                <a href="https://sourceforge.net/projects/fishy-linux/" target="_blank"
+                                    class="distro-link primary"><i class="fas fa-download"></i> SourceForge</a>
+                                <a href="https://distrowatch.com/table.php?distribution=fishy" target="_blank"
+                                    class="distro-link"><i class="fas fa-eye"></i> DistroWatch</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cyrethium (Discontinued) -->
+                    <div class="distro-card discontinued reveal">
+                        <div class="distro-img">
+                            <img src="Assets/cyrethium-de.png" alt="Cyrethium Desktop">
+                            <div class="distro-logo"><img src="Assets/cyrethium.png" alt="Cyrethium Logo"></div>
+                        </div>
+                        <div class="distro-info">
+                            <div class="distro-status inactive"><span class="dot"></span> DISCONTINUED</div>
+                            <h3>Cyrethium</h3>
+                            <div class="distro-meta">
+                                <span><i class="fas fa-calendar"></i> 2025-5-8 to 2025-12-20</span>
+                                <span><i class="fas fa-layer-group"></i> Debian-based (formerly Arch)</span>
+                                <span><i class="fas fa-desktop"></i> MATE</span>
+                            </div>
+                            <div class="distro-tags">
+                                <span class="tag privacy">Privacy</span>
+                                <span class="tag security">Security</span>
+                                <span class="tag">Tor</span>
+                            </div>
+                            <p class="distro-desc">Cyrethium (formerly Securonis Linux, previously known as Portal OS)
+                                is a Debian-based Linux distribution focused on privacy and security. Routes all traffic
+                                through Tor network. Pre-configured DNSCrypt-Proxy and I2P Router with custom hardened
+                                Firefox variants. 4 versions available: 2 core and 2 respins.</p>
+                            <div class="distro-links">
+                                <a href="https://cyrethium.org" target="_blank" class="distro-link"><i
+                                        class="fas fa-globe"></i> Website</a>
+                                <a href="https://github.com/Cyrethium" target="_blank" class="distro-link"><i
+                                        class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Securonis" target="_blank" class="distro-link"><i
+                                        class="fab fa-github"></i> Securonis</a>
+                                <a href="https://sourceforge.net/projects/cyrethium/" target="_blank"
+                                    class="distro-link"><i class="fas fa-download"></i> SourceForge</a>
+                                <a href="https://distrowatch.com/table.php?distribution=cyrethium" target="_blank"
+                                    class="distro-link"><i class="fas fa-eye"></i> DistroWatch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="footer-brand">root0emir</span>
+            <p>2026 root0emir | All rights reserved</p>
+        </div>
+    </footer>
+    <script src="static/script.js"></script>
+</body>
+
+</html>

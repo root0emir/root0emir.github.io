@@ -6,111 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | root0emir</title>
     <meta name="description" content="The page you are looking for does not exist or has been moved.">
-    <link rel="icon" href="Assets/icon.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="Assets/root0icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* ================================================
-           404 PAGE STYLES
-           ================================================ */
-
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
-
-        :root {
-            --primary: #00ff41;
-            --primary-glow: rgba(0, 255, 65, 0.5);
-            --cyan: #00f0ff;
-            --magenta: #ff00ff;
-            --red: #ff3355;
-            --bg-primary: #030712;
-            --bg-secondary: #0a0f1e;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --font-display: 'Orbitron', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100%;
-        }
-
-        body {
-            font-family: var(--font-mono);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .error-section {
             min-height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Background Grid */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -2;
-        }
-
-        /* Matrix Canvas */
-        #matrix-404 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
-        }
-
-        /* Main Container */
-        .error-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0;
-            width: 100%;
-            max-width: 1200px;
-            padding: 2rem;
+            padding-top: var(--nav-height);
             position: relative;
             z-index: 1;
         }
 
-        /* Left Side - Image */
-        .error-image {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 0;
+        .error-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .error-image img {
-            max-width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-            filter: drop-shadow(0 0 30px rgba(0, 255, 65, 0.3));
+        .error-img-container {
+            position: relative;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .error-img-container img {
+            width: 280px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(89, 148, 255, 0.2));
             animation: float 4s ease-in-out infinite;
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .error-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
         }
 
         @keyframes float {
@@ -121,294 +81,41 @@
             }
 
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-15px);
             }
         }
 
-        /* Right Side - 404 Content */
-        .error-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding-left: 2rem;
-        }
-
-        /* 404 Number */
-        .error-code {
-            font-family: var(--font-display);
-            font-size: 12rem;
-            font-weight: 900;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--primary), var(--cyan), var(--magenta));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            animation: glow-pulse 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow-pulse {
+        @keyframes fadeIn {
             from {
-                text-shadow: 0 0 20px var(--primary-glow);
-                filter: drop-shadow(0 0 20px var(--primary-glow));
+                opacity: 0;
+                transform: translateY(20px);
             }
 
             to {
-                text-shadow: 0 0 40px var(--primary-glow), 0 0 60px var(--primary-glow);
-                filter: drop-shadow(0 0 40px var(--primary-glow));
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .error-code::before {
-            content: '404';
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: linear-gradient(135deg, var(--red), var(--magenta));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glitch 2s infinite;
-            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-        }
-
-        .error-code::after {
-            content: '404';
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: linear-gradient(135deg, var(--cyan), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glitch 2s infinite reverse;
-            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-        }
-
-        @keyframes glitch {
-
-            0%,
-            100% {
-                transform: translate(0);
-            }
-
-            20% {
-                transform: translate(-3px, 3px);
-            }
-
-            40% {
-                transform: translate(3px, -3px);
-            }
-
-            60% {
-                transform: translate(-3px, -3px);
-            }
-
-            80% {
-                transform: translate(3px, 3px);
-            }
-        }
-
-        /* Error Title */
-        .error-title {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            margin-top: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
-
-        /* Terminal Style Message */
-        .error-terminal {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: rgba(10, 15, 30, 0.9);
-            border: 1px solid var(--primary);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
-        }
-
-        .terminal-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .terminal-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .terminal-dot.red {
-            background: #ff5f56;
-        }
-
-        .terminal-dot.yellow {
-            background: #ffbd2e;
-        }
-
-        .terminal-dot.green {
-            background: #27c93f;
-        }
-
-        .terminal-title {
-            margin-left: auto;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .terminal-line {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .terminal-line .prompt {
-            color: var(--primary);
-        }
-
-        .terminal-line .command {
-            color: var(--text-primary);
-        }
-
-        .terminal-line .error {
-            color: var(--red);
-        }
-
-        .terminal-line .path {
-            color: var(--cyan);
-        }
-
-        /* Navigation Button */
-        .error-actions {
-            margin-top: 2rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            background: linear-gradient(135deg, var(--primary), #00cc33);
-            color: var(--bg-primary);
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px var(--primary-glow);
-        }
-
-        .btn-home:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 30px var(--primary-glow);
-        }
-
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid rgba(0, 255, 65, 0.3);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-back:hover {
-            background: rgba(0, 255, 65, 0.1);
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        /* Scanlines */
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(transparent 50%,
-                    rgba(0, 0, 0, 0.1) 50%);
-            background-size: 100% 4px;
-            z-index: 100;
-            pointer-events: none;
-            opacity: 0.1;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .error-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .error-image {
-                justify-content: center;
-                padding-right: 0;
-            }
-
-            .error-image img {
-                max-height: 40vh;
-            }
-
-            .error-content {
-                align-items: center;
-                padding-left: 0;
-                padding-top: 2rem;
-            }
-
+        @media (max-width: 768px) {
             .error-code {
-                font-size: 8rem;
+                font-size: 4.5rem;
             }
 
             .error-title {
-                font-size: 1.4rem;
+                font-size: 1.25rem;
             }
 
-            .error-terminal {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .error-code {
-                font-size: 5rem;
-            }
-
-            .error-title {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
+            .error-img-container img {
+                width: 220px;
             }
 
             .error-actions {
                 flex-direction: column;
-                width: 100%;
             }
 
-            .btn-home,
-            .btn-back {
+            .btn-primary,
+            .btn-secondary {
                 width: 100%;
                 justify-content: center;
             }
@@ -418,98 +125,119 @@
 
 <body>
     <!-- Background Effects -->
-    <div class="grid-bg"></div>
-    <canvas id="matrix-404"></canvas>
-    <div class="scanlines"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <canvas id="bg-particles" class="bg-canvas"></canvas>
 
-    <!-- Main Content -->
-    <div class="error-container">
-        <!-- Left Side - Character Image -->
-        <div class="error-image">
-            <img src="Assets/404.png" alt="404 Character">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon"><img src="Assets/root0icon.png" alt="Killrozero"></div>
+                Killrozero
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="distros.html">Distro's</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="articles.html">Articles</a>
+                <a href="ainews.html">AI News</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
+    </nav>
 
-        <!-- Right Side - 404 Content -->
+    <!-- 404 Content -->
+    <section class="error-section">
         <div class="error-content">
-            <div class="error-code">404</div>
-            <h1 class="error-title">Page Not Found</h1>
-
-            <div class="error-terminal">
-                <div class="terminal-header">
-                    <span class="terminal-dot red"></span>
-                    <span class="terminal-dot yellow"></span>
-                    <span class="terminal-dot green"></span>
-                    <span class="terminal-title">error.log</span>
-                </div>
-                <div class="terminal-body">
-                    <p class="terminal-line">
-                        <span class="prompt">$</span> <span class="command">cat /var/log/nginx/error.log</span>
-                    </p>
-                    <p class="terminal-line">
-                        <span class="error">[ERROR]</span> Requested path <span class="path">not found</span>
-                    </p>
-                    <p class="terminal-line">
-                        <span class="prompt">$</span> <span class="command">echo "Returning to base..."</span>
-                    </p>
-                </div>
+            <div class="error-img-container">
+                <img src="Assets/404.png" alt="404 - Not Found">
             </div>
 
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">OBJECT NOT FOUND</h2>
+            <p class="error-desc">
+                The requested resource has been moved or doesn't exist in this sector.
+                Let's get you back to the main terminal.
+            </p>
+
             <div class="error-actions">
-                <a href="index.html" class="btn-home">
-                    <i class="fas fa-home"></i>
-                    <span>Return Home</span>
+                <a href="index.html" class="btn-primary">
+                    <i class="fas fa-home"></i> Return Home
                 </a>
-                <button onclick="history.back()" class="btn-back">
-                    <i class="fas fa-arrow-left"></i>
-                    <span>Go Back</span>
+                <button onclick="history.back()" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Go Back
                 </button>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Particle Script  -->
     <script>
-        // Matrix Rain Effect for 404 Page
-        const canvas = document.getElementById('matrix-404');
+        // Particle Background
+        const canvas = document.getElementById('bg-particles');
         const ctx = canvas.getContext('2d');
+        let particles = [];
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
-        const chars = 'ERROR404NOTFOUNDPAGENOTEXIST01';
-        const fontSize = 14;
-        const columns = Math.floor(canvas.width / fontSize);
-        const drops = Array(columns).fill(1);
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
-
-            for (let i = 0; i < drops.length; i++) {
-                // Alternate between green and red for 404 effect
-                ctx.fillStyle = Math.random() > 0.8 ? '#ff3355' : '#00ff41';
-
-                const char = chars[Math.floor(Math.random() * chars.length)];
-                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = `rgba(89, 148, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
 
-        setInterval(drawMatrix, 35);
+        function createParticles() {
+            const count = Math.min(Math.floor(window.innerWidth / 15), 100);
+            particles = [];
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
 
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            initCanvas();
+            createParticles();
         });
 
-        // Console message
-        console.log('%c404 - Page Not Found', 'color: #ff3355; font-size: 24px; font-weight: bold;');
-        console.log('%cThe requested resource could not be located on this server.', 'color: #94a3b8;');
+        initCanvas();
+        createParticles();
+        animate();
     </script>
 </body>
 
